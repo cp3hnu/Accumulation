@@ -16,15 +16,17 @@ extension Double {
 
 extension Int {
     var cf: CGFloat { CGFloat(self) }
+    var f: Float { Float(self) }
+    var d: Double { Double(self) }
 }
 
 extension Float {
-    var cf: CGFloat {  CGFloat(self) }
+    var cf: CGFloat { CGFloat(self) }
 }
 
 extension CGFloat {
-    var d: Double {  Double(self) }
-    var f: Float {  Float(self) }
+    var d: Double { Double(self) }
+    var f: Float { Float(self) }
     var i: Int {  Int(self) }
 }
 

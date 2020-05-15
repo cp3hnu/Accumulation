@@ -58,20 +58,6 @@ extension String {
     }
 }
 
-// MARK: - URL
-extension String {
-    var url: URL? {
-        return URL(string: self)
-    }
-}
-
-// MARK: - Empty
-extension String {
-    func emptyTo(_ defaultValue: String) -> String {
-        return !self.isEmpty ? self : defaultValue
-    }
-}
-
 // MARK: - Compare
 extension String {
     func greaterThan(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
@@ -113,6 +99,21 @@ extension String {
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+// MARK: - Others
+extension String {
+    var url: URL? {
+        return URL(string: self)
+    }
+    
+    func emptyTo(_ defaultValue: String) -> String {
+        return !self.isEmpty ? self : defaultValue
+    }
+    
+    func trimmingAllSpace() -> String {
+        return self.replacingOccurrences(of: " ", with: "")
     }
 }
 
