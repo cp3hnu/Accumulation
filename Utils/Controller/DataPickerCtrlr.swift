@@ -47,6 +47,7 @@ final class DataPickerCtrlr: UIViewController {
     struct Style {
         static var titleFont = 16.font
         static var titleColor = 0x333333.hexColor
+        static var backgroundColor = UIColor.white
     }
 
     var completion: ((IndexPath) -> Void)?
@@ -75,7 +76,7 @@ final class DataPickerCtrlr: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = Style.backgroundColor
         setupView()
     }
 }
@@ -83,9 +84,8 @@ final class DataPickerCtrlr: UIViewController {
 // MARK: - Setup
 private extension DataPickerCtrlr {
     func setupView() {
-        let bar = UIToolbar()
-        let width = UIScreen.main.bounds.width
-        bar.frame = CGRect(x: 0, y: 0, width: width, height: 44)
+        let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+        bar.translatesAutoresizingMaskIntoConstraints = false
         
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
@@ -105,10 +105,10 @@ private extension DataPickerCtrlr {
             pickerView.selectRow(selectedPath[i], inComponent: i, animated: false)
         }
         
-        view.addSubview(bar)
-        view.asv(pickerView)
+        view.asv(bar, pickerView)
         view.layout(
-            bar,
+            0,
+            |bar| ~ 44,
             0,
             |pickerView.centerHorizontally()| ~ 216
         )

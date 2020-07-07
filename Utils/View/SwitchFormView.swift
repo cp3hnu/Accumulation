@@ -13,6 +13,7 @@ final class SwitchFormView: UIView {
     struct Style {
         static var font = 16.font
         static var textColor = 0x333333.hexColor
+        static var backgroundColor = UIColor.white
     }
     
     let titleLabel = UILabel().font(Style.font).textColor(Style.textColor)
@@ -21,7 +22,7 @@ final class SwitchFormView: UIView {
     
     public init(title: String) {
         super.init(frame: CGRect.zero)
-        backgroundColor = UIColor.white
+        backgroundColor = Style.backgroundColor
         
         titleLabel.text = title
         asv(titleLabel, switchCtrl, seperator)

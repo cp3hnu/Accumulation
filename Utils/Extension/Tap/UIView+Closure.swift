@@ -33,7 +33,8 @@ extension UIView {
         self.addGestureRecognizer(tapGR)
     }
     
-    @objc private func tapGRAction() {
+    @objc private func tapGRAction(gr: UITapGestureRecognizer) {
+        guard gr.state == .ended else { return }
         tapGestureAction?()
     }
 }

@@ -60,10 +60,12 @@ final class AlertCtrlr: UIViewController {
         static var destructiveBtnBgNorColor = UIColor.white
         static var destructiveBtnBgHigColor = UIColor.white
         static var destructiveBtnBgDisColor = UIColor.white
+        static var backgroundColor = UIColor.white
+        static var closeTintColor = 0x666666.hexColor
     }
     
     var dismissed: ((Bool, Any?) -> (Void))?
-    let wrappedView = UIView().backgroundColor(UIColor.white)
+    let wrappedView = UIView()
     var widthPercentage: CGFloat = 65
     var destructive: Bool = false
     var hasClose: Bool = true
@@ -112,6 +114,7 @@ final class AlertCtrlr: UIViewController {
 private extension AlertCtrlr {
     func setupView() {
         view.asv(wrappedView)
+        wrappedView.backgroundColor = Style.backgroundColor
         wrappedView.centerInContainer().width(widthPercentage%)
         wrappedView.layer.cornerRadius = 10
         wrappedView.layer.masksToBounds = true
@@ -135,7 +138,7 @@ private extension AlertCtrlr {
             let closeBtn = UIButton(type: .custom)
             closeBtn.setImage(image, for: .normal)
             closeBtn.setPreferredSymbolConfiguration(config, forImageIn: .normal)
-            closeBtn.tintColor = 0x777777.hexColor
+            closeBtn.tintColor = Style.closeTintColor
             closeBtn.tap { [unowned self] in
                 self.dismiss(animated: true, completion: nil)
             }

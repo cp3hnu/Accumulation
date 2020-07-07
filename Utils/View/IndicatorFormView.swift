@@ -26,6 +26,7 @@ final class IndicatorFormView: UIView {
         static var placeholderColor = UIColor(red: 0, green: 0, blue: 0.1, alpha: 0.22)
         static var indicatorImage = UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: UIImage.SymbolWeight.regular))
         static var indicatorTintColor = 0x333333.hexColor
+        static var backgroundColor = UIColor.white
     }
     
     var tap: (() -> Void)?
@@ -93,7 +94,7 @@ final class IndicatorFormView: UIView {
     init(style: IndicatorFormStyle) {
         self.style = style
         super.init(frame: CGRect.zero)
-        backgroundColor = UIColor.white
+        backgroundColor = Style.backgroundColor
         indicator.tintColor = Style.indicatorTintColor
         
         asv(
