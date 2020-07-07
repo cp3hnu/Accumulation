@@ -46,6 +46,7 @@
 		35161339246D3F990078CE74 /* UIFont+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612F0246D35410078CE74 /* UIFont+Style.swift */; };
 		3594F38C24B41BD90037C8B9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594F38B24B41BD90037C8B9 /* LoadingView.swift */; };
 		3594F38E24B41E7C0037C8B9 /* PickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594F38D24B41E7C0037C8B9 /* PickView.swift */; };
+		35D2492724B45A6500B31F43 /* Accumulation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35D2492624B45A6500B31F43 /* Accumulation.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		35161333246D3C520078CE74 /* IndicatorFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorFormView.swift; sourceTree = "<group>"; };
 		3594F38B24B41BD90037C8B9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3594F38D24B41E7C0037C8B9 /* PickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickView.swift; sourceTree = "<group>"; };
+		35D2492624B45A6500B31F43 /* Accumulation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Accumulation.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				351612DC246D32290078CE74 /* Extension */,
 				351612D1246D32200078CE74 /* Utils.h */,
 				351612D2246D32200078CE74 /* Info.plist */,
+				35D2492624B45A6500B31F43 /* Accumulation.xcassets */,
 			);
 			path = Accumulation;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D2492724B45A6500B31F43 /* Accumulation.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

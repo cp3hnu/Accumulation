@@ -143,10 +143,10 @@ public final class GradientLoadingView: LoadingView {
     public private(set) var isLoading = false
     public var duration: TimeInterval = 0.15
     
-    public init(image: UIImage) {
-        super.init(frame: CGRect.zero)
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        imageView.image = image
+        imageView.image = #imageLiteral(resourceName: "circle")
         asv(imageView)
         imageView.fillContainer()
     }
