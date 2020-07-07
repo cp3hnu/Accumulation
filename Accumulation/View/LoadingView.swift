@@ -46,9 +46,15 @@ public final class RollLoadingView: LoadingView {
         }
     }
 
-    @IBInspectable public var fillColor = UIColor.white {
+    @IBInspectable public var circleColor = UIColor.System.tint {
         didSet {
-            circleLayer.fillColor = fillColor.cgColor
+            circleLayer.fillColor = circleColor.cgColor
+        }
+    }
+    
+    @IBInspectable public var ringColor = UIColor.white.alpha(0.4) {
+        didSet {
+            ringLayer.strokeColor = ringColor.cgColor
         }
     }
 
@@ -111,14 +117,14 @@ public final class RollLoadingView: LoadingView {
 private extension RollLoadingView {
     func setupView() {
         // ringLayer
-        ringLayer.strokeColor = UIColor.white.alpha(0.4).cgColor
+        ringLayer.strokeColor = ringColor.cgColor
         ringLayer.fillColor = nil
         ringLayer.lineWidth = lineWidth
         layer.addSublayer(ringLayer)
 
         // circleLayer
         circleLayer.strokeColor = nil
-        circleLayer.fillColor = fillColor.cgColor
+        circleLayer.fillColor = circleColor.cgColor
         layer.addSublayer(circleLayer)
     }
 
@@ -137,10 +143,10 @@ public final class GradientLoadingView: LoadingView {
     public private(set) var isLoading = false
     public var duration: TimeInterval = 0.15
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    public init(image: UIImage) {
+        super.init(frame: CGRect.zero)
         
-        imageView.image = #imageLiteral(resourceName: "circle")
+        imageView.image = image
         asv(imageView)
         imageView.fillContainer()
     }
