@@ -10,41 +10,41 @@ import Foundation
 import UIKit
 
 extension Double {
-    var twoDecimalPlaces: String { String(format: "%.2f", self) }
-    var cf: CGFloat { CGFloat(self) }
+    public var twoDecimalPlaces: String { String(format: "%.2f", self) }
+    public var cf: CGFloat { CGFloat(self) }
 }
 
 extension Int {
-    var cf: CGFloat { CGFloat(self) }
-    var f: Float { Float(self) }
-    var d: Double { Double(self) }
+    public var cf: CGFloat { CGFloat(self) }
+    public var f: Float { Float(self) }
+    public var d: Double { Double(self) }
 }
 
 extension Float {
-    var cf: CGFloat { CGFloat(self) }
+    public var cf: CGFloat { CGFloat(self) }
 }
 
 extension CGFloat {
-    var d: Double { Double(self) }
-    var f: Float { Float(self) }
-    var i: Int {  Int(self) }
+    public var d: Double { Double(self) }
+    public var f: Float { Float(self) }
+    public var i: Int {  Int(self) }
 }
 
 // MARK: - Font
 extension Int {
-    var font: UIFont {
+    public var font: UIFont {
         return UIFont.systemFont(ofSize: self.cf)
     }
     
-    var boldFont: UIFont {
+    public var boldFont: UIFont {
         return UIFont.boldSystemFont(ofSize: self.cf)
     }
     
-    var italicFont: UIFont {
+    public var italicFont: UIFont {
         return UIFont.italicSystemFont(ofSize: self.cf)
     }
     
-    var mediumFont: UIFont {
+    public var mediumFont: UIFont {
         if #available(iOS 8.2, *) {
             return UIFont.systemFont(ofSize: self.cf, weight: UIFont.Weight.medium)
         } else {
@@ -52,7 +52,7 @@ extension Int {
         }
     }
     
-    var semiboldFont: UIFont {
+    public var semiboldFont: UIFont {
         if #available(iOS 8.2, *) {
             return UIFont.systemFont(ofSize: self.cf, weight: UIFont.Weight.semibold)
         } else {
@@ -60,7 +60,7 @@ extension Int {
         }
     }
     
-    var lightFont: UIFont {
+    public var lightFont: UIFont {
         if #available(iOS 8.2, *) {
             return UIFont.systemFont(ofSize: self.cf, weight: UIFont.Weight.light)
         } else {

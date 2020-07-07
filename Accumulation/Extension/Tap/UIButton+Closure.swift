@@ -28,7 +28,7 @@ extension UIButton {
         }
     }
     
-    func tap(_ action: @escaping TapAction) {
+    public func tap(_ action: @escaping TapAction) {
         tapAction = action
         addTarget(self, action: #selector(UIButton.tapped), for: UIControl.Event.touchUpInside)
     }

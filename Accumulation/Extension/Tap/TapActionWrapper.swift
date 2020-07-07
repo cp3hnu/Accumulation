@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias TapAction = (() -> Void)
+public typealias TapAction = (() -> Void)
 class TapActionWrapper {
     let action: TapAction?
     

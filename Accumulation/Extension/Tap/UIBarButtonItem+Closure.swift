@@ -28,28 +28,28 @@ extension UIBarButtonItem {
         }
     }
     
-    convenience init(image: UIImage?, style: UIBarButtonItem.Style, block: TapAction? = nil) {
+    public convenience init(image: UIImage?, style: UIBarButtonItem.Style, block: TapAction? = nil) {
         self.init(image: image, style: style, target: nil, action: nil)
         self.target = self
         self.action = #selector(UIBarButtonItem.tapped)
         self.tapAction = block
     }
     
-    convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItem.Style, block: TapAction? = nil) {
+    public convenience init(image: UIImage?, landscapeImagePhone: UIImage?, style: UIBarButtonItem.Style, block: TapAction? = nil) {
         self.init(image: image, landscapeImagePhone: landscapeImagePhone, style: style, target: nil, action: nil)
         self.target = self
         self.action = #selector(UIBarButtonItem.tapped)
         self.tapAction = block
     }
     
-    convenience init(title: String?, style: UIBarButtonItem.Style, block: TapAction? = nil) {
+    public convenience init(title: String?, style: UIBarButtonItem.Style, block: TapAction? = nil) {
         self.init(title: title, style: style, target: nil, action: nil)
         self.target = self
         self.action = #selector(UIBarButtonItem.tapped)
         self.tapAction = block
     }
     
-    convenience init(barButtonSystemItem systemItem: UIBarButtonItem.SystemItem, block: TapAction? = nil) {
+    public convenience init(barButtonSystemItem systemItem: UIBarButtonItem.SystemItem, block: TapAction? = nil) {
         self.init(barButtonSystemItem: systemItem, target: nil, action: nil)
         self.target = self
         self.action = #selector(UIBarButtonItem.tapped)

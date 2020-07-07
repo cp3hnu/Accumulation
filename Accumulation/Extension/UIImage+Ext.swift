@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIImage {
-    enum CircleMode {
+    public enum CircleMode {
         case scaleToFill
         case scaleAspectFit
     }
     
     /// 圆形带边框图片
-    func circleImage(mode: CircleMode = .scaleToFill, borderSize: CGFloat = 0, borderColor: UIColor = UIColor.white) -> UIImage {
+    public func circleImage(mode: CircleMode = .scaleToFill, borderSize: CGFloat = 0, borderColor: UIColor = UIColor.white) -> UIImage {
         let width = size.width
         let height = size.height
         let innerSquare: CGFloat
@@ -65,7 +65,7 @@ extension UIImage {
     }
     
     /// 改变图片的颜色
-    func changeColor(_ color: UIColor) -> UIImage {
+    public func changeColor(_ color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context = UIGraphicsGetCurrentContext()!
         context.translateBy(x: 0, y: size.height)
@@ -82,7 +82,7 @@ extension UIImage {
     }
     
     /// 等比缩放
-    func resizedToAspectFitSize(_ newSize: CGSize, newScale: CGFloat = 0.0) -> UIImage {
+    public func resizedToAspectFitSize(_ newSize: CGSize, newScale: CGFloat = 0.0) -> UIImage {
         let widthRatio = newSize.width / size.width
         let heightRatio = newSize.height / size.height
         let scaledRatio = min(widthRatio, heightRatio)
@@ -98,7 +98,7 @@ extension UIImage {
     }
     
     /// 缩放
-    func resizedToFillSize(_ newSize: CGSize, newScale: CGFloat = 0.0) -> UIImage {
+    public func resizedToFillSize(_ newSize: CGSize, newScale: CGFloat = 0.0) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, newScale)
         draw(in: CGRect(origin: CGPoint.zero, size: newSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()!
@@ -108,7 +108,7 @@ extension UIImage {
     }
     
     /// 混合图片
-    func addImage(_ image: UIImage, imageSize: CGSize? = nil) -> UIImage {
+    public func addImage(_ image: UIImage, imageSize: CGSize? = nil) -> UIImage {
         var addImageSize = image.size
         if let imageSize = imageSize {
             addImageSize = imageSize
@@ -123,7 +123,7 @@ extension UIImage {
     }
     
     /// 混合图片
-    func addImage(_ image: UIImage, imageRect: CGRect) -> UIImage {
+    public func addImage(_ image: UIImage, imageRect: CGRect) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         draw(in: CGRect(origin: CGPoint.zero, size: size))
         image.draw(in: imageRect)
@@ -133,7 +133,7 @@ extension UIImage {
     }
     
     /// 移动图片
-    func moveToPosition(_ point: CGPoint) -> UIImage {
+    public func moveToPosition(_ point: CGPoint) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         draw(in: CGRect(x: point.x, y: point.y, width: size.width, height: size.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()!

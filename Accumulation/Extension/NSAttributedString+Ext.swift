@@ -11,7 +11,7 @@ import UIKit
 
 extension NSAttributedString {
     // NSAttributedString 转 NSMutableAttributedString
-    var mutableAttributedString: NSMutableAttributedString {
+    public var mutableAttributedString: NSMutableAttributedString {
         return NSMutableAttributedString(attributedString: self)
     }
 }
@@ -107,7 +107,7 @@ extension String {
     }
     
     // 添加图片
-    func append(image: UIImage, bound: CGRect, color: UIColor? = nil) -> NSAttributedString {
+    public func append(image: UIImage, bound: CGRect, color: UIColor? = nil) -> NSAttributedString {
         let attachment = NSTextAttachment()
         if let color = color {
             attachment.image = image.changeColor(color)
@@ -124,7 +124,7 @@ extension String {
 
 // MARK: - UIImage 转 NSAttributedString
 extension UIImage {
-    func attributedString(bounds: CGRect? = nil) -> NSAttributedString {
+    public func attributedString(bounds: CGRect? = nil) -> NSAttributedString {
         let attachment = NSTextAttachment()
         attachment.image = self
         if let unwBounds = bounds {
@@ -136,11 +136,11 @@ extension UIImage {
 
 // MARK: - Range 和 NSRange 相互转化
 extension String {
-    func range(from: NSRange) -> Range<String.Index>? {
+    public func range(from: NSRange) -> Range<String.Index>? {
         return Range<String.Index>(from, in: self)
     }
     
-    func nsRange(from: Range<String.Index>) -> NSRange {
+    public func nsRange(from: Range<String.Index>) -> NSRange {
         return NSRange(from, in: self)
     }
 }

@@ -9,25 +9,25 @@
 import Foundation
 
 extension FileManager {
-    var documentUrl: URL {
+    public var documentUrl: URL {
         return urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
-    var appSupportUrl: URL {
+    public var appSupportUrl: URL {
         return urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     }
     
-    func fileExists(atUrl url: URL) -> Bool {
+    public func fileExists(atUrl url: URL) -> Bool {
         return fileExists(atPath: url.path)
     }
     
     @discardableResult
-    func createFile(atUrl url: URL, contents: Data?, attributes: [FileAttributeKey : Any]?) -> Bool {
+    public func createFile(atUrl url: URL, contents: Data?, attributes: [FileAttributeKey : Any]?) -> Bool {
         return createFile(atPath: url.path, contents: contents, attributes: attributes)
     }
     
     @discardableResult
-    func createDirectoryIfNotExists(url: URL) -> Bool {
+    public func createDirectoryIfNotExists(url: URL) -> Bool {
         if !fileExists(atUrl: url) {
             do {
                 try createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
@@ -40,7 +40,7 @@ extension FileManager {
         return true
     }
     
-    func isFile(atUrl url: URL) -> Bool {
+    public func isFile(atUrl url: URL) -> Bool {
         var isDir: ObjCBool = false
         if fileExists(atPath: url.path, isDirectory: &isDir) {
             return !isDir.boolValue

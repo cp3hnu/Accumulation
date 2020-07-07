@@ -10,7 +10,7 @@ import Foundation
 
 extension DispatchQueue {
     // delay 单位秒
-    func delay(_ delay: TimeInterval, execute closure: @escaping () -> Void) {
+    public func delay(_ delay: TimeInterval, execute closure: @escaping () -> Void) {
         asyncAfter(deadline: .now() + delay, execute: closure)
     }
 }

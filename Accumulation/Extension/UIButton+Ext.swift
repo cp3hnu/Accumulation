@@ -11,7 +11,7 @@ import UIKit
 
 extension UIButton {
     /// 可以设置高亮时的背景色
-    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+    public func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
         self.setBackgroundImage(color.image, for: state)
     }
 }

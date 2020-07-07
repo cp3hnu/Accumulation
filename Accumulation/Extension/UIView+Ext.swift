@@ -13,26 +13,26 @@ import Bricking
 // MARK: - Cascade
 extension UIView {
     @discardableResult
-    func backgroundColor(_ color: UIColor) -> Self {
+    public func backgroundColor(_ color: UIColor) -> Self {
         self.backgroundColor = color
         return self
     }
     
     @discardableResult
-    func alpha(_ alpha: CGFloat) -> Self {
+    public func alpha(_ alpha: CGFloat) -> Self {
         self.alpha = alpha
         return self
     }
     
     @discardableResult
-    func border(width: CGFloat, color: UIColor) -> Self {
+    public func border(width: CGFloat, color: UIColor) -> Self {
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
         return self
     }
     
     @discardableResult
-    func corner(_ radius: CGFloat) -> Self {
+    public func corner(_ radius: CGFloat) -> Self {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
         return self
@@ -41,14 +41,14 @@ extension UIView {
 
 // MARK: - Seperator
 extension UIView {
-    static func seperator(color: UIColor = UIColor.seperatorColor) -> UIView {
+    public static func seperator(color: UIColor = UIColor.seperatorColor) -> UIView {
         return UIView().backgroundColor(color)
     }
 }
 
 // MARK: - Snapshot
 extension UIView {
-    var snapshot: UIImage? {
+    public var snapshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
         drawHierarchy(in: bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -59,14 +59,14 @@ extension UIView {
 
 // MARK: - 设置边框的颜色8z
 extension UIView {
-    enum Border {
+    public enum Border {
         case left
         case right
         case top
         case bottom
     }
     
-    func setBorder(border: UIView.Border, weight: CGFloat, color: UIColor ) {
+    public func setBorder(border: UIView.Border, weight: CGFloat, color: UIColor ) {
         let lineView = UIView()
         lineView.backgroundColor = color
         asv(lineView)
@@ -86,7 +86,7 @@ extension UIView {
 
 // MARK: - 添加渐变色和边角
 extension UIView {
-    func addGradientColor(bounds: CGRect, fromColor: UIColor, toColor: UIColor ) {
+    public func addGradientColor(bounds: CGRect, fromColor: UIColor, toColor: UIColor ) {
         let layer = CAGradientLayer()
         layer.frame = bounds
         layer.startPoint = CGPoint.zero
@@ -95,7 +95,7 @@ extension UIView {
         self.layer.addSublayer(layer)
     }
     
-    func addCorner(bounds: CGRect, cornerRadii: CGSize, corners: UIRectCorner) {
+    public func addCorner(bounds: CGRect, cornerRadii: CGSize, corners: UIRectCorner) {
         let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: cornerRadii)
         let maskLayer = CAShapeLayer()
         maskLayer.frame = bounds
@@ -106,7 +106,7 @@ extension UIView {
 
 // MARK: - 动画
 extension UIView {
-    func waggling() {
+    public func waggling() {
         let from = CATransform3DIdentity
         let to = CATransform3DTranslate(from, 15, 0, 0)
         let anim = CABasicAnimation(keyPath: "transform")
@@ -119,7 +119,7 @@ extension UIView {
         self.layer.add(anim, forKey: "animation.waggling")
     }
     
-    func scaleUp(_ scale: CGFloat, duration: CFTimeInterval = 0.3) {
+    public func scaleUp(_ scale: CGFloat, duration: CFTimeInterval = 0.3) {
         let from = CATransform3DIdentity
         let to = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
         let anim = CABasicAnimation(keyPath: "transform")
@@ -132,7 +132,7 @@ extension UIView {
         self.layer.add(anim, forKey: "animation.scaleUp")
     }
     
-    func fadeTransition(_ duration: CFTimeInterval = 0.3) {
+    public func fadeTransition(_ duration: CFTimeInterval = 0.3) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
             CAMediaTimingFunctionName.easeInEaseOut)
@@ -141,7 +141,7 @@ extension UIView {
         layer.add(animation, forKey: "animation.fadeTransition")
     }
     
-    func fadeInOut() {
+    public func fadeInOut() {
         let anim = CABasicAnimation(keyPath: "opacity")
         anim.fromValue = 1
         anim.toValue = 0

@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Init
 extension UIColor {
-    convenience init(rgbHexString: String) {
+    public convenience init(rgbHexString: String) {
         var hexString = rgbHexString
         if rgbHexString.hasPrefix("#") {
             hexString = String(rgbHexString.dropFirst())
@@ -31,21 +31,21 @@ extension UIColor {
         self.init(rgbHex: Int(rgbValue))
     }
     
-    convenience init(redInt: Int, greenInt: Int, blueInt: Int) {
+    public convenience init(redInt: Int, greenInt: Int, blueInt: Int) {
         self.init(red: CGFloat(redInt)/255.0,
                   green: CGFloat(greenInt)/255.0,
                   blue: CGFloat(blueInt)/255.0,
                   alpha: 1.0)
     }
     
-    convenience init(_ redInt: Int, _ greenInt: Int, _ blueInt: Int) {
+    public convenience init(_ redInt: Int, _ greenInt: Int, _ blueInt: Int) {
         self.init(red: CGFloat(redInt)/255.0,
                   green: CGFloat(greenInt)/255.0,
                   blue: CGFloat(blueInt)/255.0,
                   alpha: 1.0)
     }
     
-    convenience init(rgbHex: Int) {
+    public convenience init(rgbHex: Int) {
          self.init(redInt: (rgbHex & 0xFF0000) >> 16,
                    greenInt: (rgbHex & 0x00FF00) >> 8,
                    blueInt: rgbHex & 0x0000FF)
@@ -65,7 +65,7 @@ extension UIColor {
 
 // MARK: - Other
 extension UIColor {
-    var image: UIImage {
+    public var image: UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()!
@@ -77,7 +77,7 @@ extension UIColor {
         return image
     }
     
-    func image(size: CGSize) -> UIImage {
+    public func image(size: CGSize) -> UIImage {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()!
@@ -89,25 +89,25 @@ extension UIColor {
         return image
     }
     
-    func alpha(_ alpha: CGFloat) -> UIColor {
+    public func alpha(_ alpha: CGFloat) -> UIColor {
         return self.withAlphaComponent(alpha)
     }
 }
 
 // MARK: - String
 extension String {
-    var color: UIColor {
+    public var color: UIColor {
         return UIColor(rgbHexString: self)
     }
 }
 
 // MARK: - Int
 extension Int {
-    var grayColor: UIColor {
+    public var grayColor: UIColor {
         return UIColor(grayscaleValue: self)
     }
     
-    var hexColor: UIColor {
+    public var hexColor: UIColor {
         return UIColor(rgbHex: self)
     }
 }

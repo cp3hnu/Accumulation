@@ -60,22 +60,22 @@ extension String {
 
 // MARK: - Compare
 extension String {
-    func greaterThan(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
+    public func greaterThan(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
         return self.compare(aStr, options: options, range: range, locale: locale) == ComparisonResult.orderedDescending
     }
     
-    func equalTo(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
+    public func equalTo(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
         return self.compare(aStr, options: options, range: range, locale: locale) == ComparisonResult.orderedSame
     }
     
-    func lessThan(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
+    public func lessThan(aStr: String, options: String.CompareOptions, range: Range<String.Index>? = nil, locale: Locale? = nil) -> Bool {
         return self.compare(aStr, options: options, range: range, locale: locale) == ComparisonResult.orderedAscending
     }
 }
 
 // MARK: - Image
 extension String {
-    func image(size: CGSize, font: UIFont, bgColor: UIColor = UIColor.clear, textColor: UIColor = UIColor.white) -> UIImage {
+    public func image(size: CGSize, font: UIFont, bgColor: UIColor = UIColor.clear, textColor: UIColor = UIColor.white) -> UIImage {
         var attribute = [
             NSAttributedString.Key.foregroundColor: textColor,
             NSAttributedString.Key.font: font
@@ -104,15 +104,15 @@ extension String {
 
 // MARK: - Others
 extension String {
-    var url: URL? {
+    public var url: URL? {
         return URL(string: self)
     }
     
-    func emptyTo(_ defaultValue: String) -> String {
+    public func emptyTo(_ defaultValue: String) -> String {
         return !self.isEmpty ? self : defaultValue
     }
     
-    func trimmingAllSpace() -> String {
+    public func trimmingAllSpace() -> String {
         return self.replacingOccurrences(of: " ", with: "")
     }
 }

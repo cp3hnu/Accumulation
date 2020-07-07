@@ -11,63 +11,63 @@ import UIKit
 
 extension UILabel {
     @discardableResult
-    func fontSize(_ size: CGFloat) -> Self {
+    public func fontSize(_ size: CGFloat) -> Self {
         self.font = UIFont.systemFont(ofSize: size)
         return self
     }
     
     @discardableResult
-    func font(_ font: UIFont) -> Self {
+    public func font(_ font: UIFont) -> Self {
         self.font = font
         return self
     }
     
     @discardableResult
-    func textColor(_ color: UIColor) -> Self {
+    public func textColor(_ color: UIColor) -> Self {
         self.textColor = color
         return self
     }
     
     @discardableResult
-    func text(_ str: String?) -> Self {
+    public func text(_ str: String?) -> Self {
         self.text = str
         return self
     }
     
     @discardableResult
-    func attributedText(_ attributedText: NSAttributedString?) -> Self {
+    public func attributedText(_ attributedText: NSAttributedString?) -> Self {
         self.attributedText = attributedText
         return self
     }
     
     @discardableResult
-    func lines(_ lines: Int) -> Self {
+    public func lines(_ lines: Int) -> Self {
         self.numberOfLines = lines
         return self
     }
     
     @discardableResult
-    func alignLeft() -> Self {
+    public func alignLeft() -> Self {
         return align(.left)
     }
     
     @discardableResult
-    func alignCenter() -> Self {
+    public func alignCenter() -> Self {
         return align(.center)
     }
     
     @discardableResult
-    func alignRight() -> Self {
+    public func alignRight() -> Self {
         return align(.right)
     }
     
     @discardableResult
-    func fitWidth() -> Self {
+    public func fitWidth() -> Self {
         self.adjustsFontSizeToFitWidth = true
         return self
     }
     
-    fileprivate func align(_ alignment: NSTextAlignment) -> Self {
+    private func align(_ alignment: NSTextAlignment) -> Self {
         self.textAlignment = alignment
         return self
     }
