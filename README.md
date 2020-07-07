@@ -15,7 +15,7 @@
 
 3. In Xcode, selecting the application target under the "Targets" heading in the sidebar.
 
-4. Select "General". Add `Accumulation.framework` in "Framework, Libraries, and Embedded Content".
+4. Add `Accumulation.framework` in "Framework, Libraries, and Embedded Content" and select "Embed & Sign" in "Embed".
 
 5. Expand the "Target Dependencies" group, and add `Accumulation.framework`.
 
