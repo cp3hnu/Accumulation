@@ -14,7 +14,7 @@ public final class AlertAnimator: NSObject, UIViewControllerTransitioningDelegat
     private let canDismiss: Bool
     private let animator: AlertTransition
     
-    init(canDismiss: Bool = false) {
+    public init(canDismiss: Bool = false) {
         self.canDismiss = canDismiss
         self.animator = AlertTransition()
         super.init()

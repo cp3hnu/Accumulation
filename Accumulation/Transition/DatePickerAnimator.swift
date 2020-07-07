@@ -12,7 +12,7 @@ public final class DatePickerAnimator: NSObject, UIViewControllerTransitioningDe
     
     private let animator: DatePickerTransition
     private let canDismiss: Bool
-    init(viewHeight: CGFloat, canDismiss: Bool = true) {
+    public init(viewHeight: CGFloat, canDismiss: Bool = true) {
         self.canDismiss = canDismiss
         self.animator = DatePickerTransition(viewHeight: viewHeight)
         super.init()

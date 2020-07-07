@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-public class LoadingView: UIView {
+open class LoadingView: UIView {
     private let disposeBag = DisposeBag()
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,18 +21,18 @@ public class LoadingView: UIView {
             ).disposed(by: disposeBag)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func startLoading() {}
+    open func startLoading() {}
     
-    func stopLoading() {}
+    open func stopLoading() {}
     
-    func restartLoading() {}
+    open func restartLoading() {}
 }
 
-public class RollLoadingView: LoadingView {
+public final class RollLoadingView: LoadingView {
 
     @IBInspectable public var lineWidth: CGFloat = 2.0 {
         didSet {
@@ -63,16 +63,12 @@ public class RollLoadingView: LoadingView {
         setupView()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-
-    override public func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         let width = self.bounds.width
@@ -82,7 +78,7 @@ public class RollLoadingView: LoadingView {
         setLayerPath()
     }
     
-    override func startLoading() {
+    public override func startLoading() {
         guard !isLoading else { return }
 
         isLoading = true
@@ -96,14 +92,14 @@ public class RollLoadingView: LoadingView {
         circleLayer.add(animation, forKey: animationKey)
     }
 
-    override func stopLoading() {
+    public override func stopLoading() {
         guard isLoading else { return }
 
         isLoading = false
         circleLayer.removeAnimation(forKey: animationKey)
     }
     
-    override func restartLoading() {
+    public override func restartLoading() {
         guard isLoading else { return }
 
         isLoading = false
@@ -136,7 +132,7 @@ private extension RollLoadingView {
     }
 }
 
-public class GradientLoadingView: LoadingView {
+public final class GradientLoadingView: LoadingView {
     private let imageView = UIImageView()
     public private(set) var isLoading = false
     public var duration: TimeInterval = 0.15
@@ -149,11 +145,11 @@ public class GradientLoadingView: LoadingView {
         imageView.fillContainer()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func startLoading() {
+    public override func startLoading() {
         guard !isLoading else { return }
 
         isLoading = true
@@ -170,14 +166,14 @@ public class GradientLoadingView: LoadingView {
         imageView.layer.add(anim, forKey: "animation.rotate")
     }
 
-    override func stopLoading() {
+    public override func stopLoading() {
         guard isLoading else { return }
 
         isLoading = false
         imageView.layer.removeAnimation(forKey: "animation.rotate")
     }
     
-    override func restartLoading() {
+    public override func restartLoading() {
         guard isLoading else { return }
 
         isLoading = false

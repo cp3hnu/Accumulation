@@ -11,34 +11,34 @@ import Bricking
 import RxSwift
 import RxCocoa
 
-protocol AlertViewContent {
+public protocol AlertViewContent {
     var returnValue: Any? { get }
     var isPreferredEnabled: Observable<Bool> { get }
 }
 
 extension AlertViewContent {
-    var returnValue: Any? {
+    public var returnValue: Any? {
         return nil
     }
     
-    var isPreferredEnabled: Observable<Bool> {
+    public var isPreferredEnabled: Observable<Bool> {
         return Observable<Bool>.just(true)
     }
 }
 
-typealias AlertContentView = UIView & AlertViewContent
+public typealias AlertContentView = UIView & AlertViewContent
 extension UILabel: AlertViewContent {}
-final class AlertContainerView: UIView, AlertViewContent {}
+public final class AlertContainerView: UIView, AlertViewContent {}
 
-enum AlertStyle {
+public enum AlertStyle {
     case desc(String?)
     case attributed(NSAttributedString)
     case custom(AlertContentView)
 }
 
-final class AlertCtrlr: UIViewController {
+public final class AlertCtrlr: UIViewController {
     
-    struct Style {
+    public struct Style {
         static var titleFont = 20.boldFont
         static var titleColor = UIColor.black
         static var descFont = 18.font
@@ -64,12 +64,12 @@ final class AlertCtrlr: UIViewController {
         static var closeTintColor = 0x666666.hexColor
     }
     
-    var dismissed: ((Bool, Any?) -> (Void))?
-    let wrappedView = UIView()
-    var widthPercentage: CGFloat = 65
-    var destructive: Bool = false
-    var hasClose: Bool = true
+    public var dismissed: ((Bool, Any?) -> (Void))?
+    public var widthPercentage: CGFloat = 65
+    public var destructive: Bool = false
+    public var hasClose: Bool = true
     
+    public let wrappedView = UIView()
     private let disposeBag = DisposeBag()
     private let titleText: String?
     private let style: AlertStyle
@@ -77,7 +77,7 @@ final class AlertCtrlr: UIViewController {
     private let preferTitle: String?
     private let animator = AlertAnimator()
     
-    init(title: String?, style: AlertStyle, cancelTitle: String? = nil, preferTitle: String?) {
+    public init(title: String?, style: AlertStyle, cancelTitle: String? = nil, preferTitle: String?) {
         self.titleText = title
         self.style = style
         self.cancelTitle = cancelTitle
@@ -87,15 +87,15 @@ final class AlertCtrlr: UIViewController {
         self.transitioningDelegate = self.animator
     }
     
-    convenience init(title: String?, desc: String?, cancelTitle: String? = nil, preferTitle: String?) {
+    public convenience init(title: String?, desc: String?, cancelTitle: String? = nil, preferTitle: String?) {
         self.init(title: title, style: AlertStyle.desc(desc), cancelTitle: cancelTitle, preferTitle: preferTitle)
     }
     
-    convenience init(title: String?, desc: NSAttributedString, cancelTitle: String? = nil, preferTitle: String?) {
+    public convenience init(title: String?, desc: NSAttributedString, cancelTitle: String? = nil, preferTitle: String?) {
         self.init(title: title, style: AlertStyle.attributed(desc), cancelTitle: cancelTitle, preferTitle: preferTitle)
     }
     
-    convenience init(title: String?, contentView: AlertContentView, cancelTitle: String? = nil, preferTitle: String?) {
+    public convenience init(title: String?, contentView: AlertContentView, cancelTitle: String? = nil, preferTitle: String?) {
         self.init(title: title, style: AlertStyle.custom(contentView), cancelTitle: cancelTitle, preferTitle: preferTitle)
     }
     
@@ -103,7 +103,7 @@ final class AlertCtrlr: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.black.alpha(0)

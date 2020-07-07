@@ -1,6 +1,6 @@
 # Accumulation
 
-开发过程中项目积累，包括View, View Controller, Extension, Style, Transition
+开发项目过程中的积累，包括View, View Controller, Extension, Transition, Style
 
 ## Installation
 
@@ -11,15 +11,11 @@
     git submodule add https://github.com/cp3hnu/Accumulation.git
     ```
 
-2.  Open the `Accumulation` folder, and drag `Accumulation.xcodeproj` into the file navigator of your app project.
+2. Open the `Accumulation` folder, and drag `Accumulation.xcodeproj` into the file navigator of your app project.
 
-3.  In Xcode, selecting the application target under the "Targets" heading in the sidebar.
+3. In Xcode, selecting the application target under the "Targets" heading in the sidebar.
 
-4.  Ensure that the deployment target of `Accumulation.framework` matches that of the application target.
+4. Select "General". Add `Accumulation.framework` in "Framework, Libraries, and Embedded Content".
 
-5.  In the tab bar at the top of that window, open the "Build Phases" panel.
-
-6.  Expand the "Target Dependencies" group, and add `Accumulation.framework`.
-
-7.  Click on the `+` button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add `Accumulation.framework`.
+5. Expand the "Target Dependencies" group, and add `Accumulation.framework`.
 

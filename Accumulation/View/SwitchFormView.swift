@@ -9,16 +9,16 @@
 import UIKit
 import Bricking
 
-final class SwitchFormView: UIView {
-    struct Style {
+public final class SwitchFormView: UIView {
+    public struct Style {
         static var font = 16.font
         static var textColor = 0x333333.hexColor
         static var backgroundColor = UIColor.white
     }
     
-    let titleLabel = UILabel().font(Style.font).textColor(Style.textColor)
-    let switchCtrl = UISwitch()
-    let seperator = UIView.seperator()
+    public let titleLabel = UILabel().font(Style.font).textColor(Style.textColor)
+    public let switchCtrl = UISwitch()
+    public let seperator = UIView.seperator()
     
     public init(title: String) {
         super.init(frame: CGRect.zero)
@@ -35,7 +35,7 @@ final class SwitchFormView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 44)
     }
 }

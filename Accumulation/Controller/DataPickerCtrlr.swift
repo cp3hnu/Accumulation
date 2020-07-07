@@ -9,13 +9,13 @@
 import UIKit
 import Bricking
 
-protocol DataPickerItem {
+public protocol DataPickerItem {
     var displayName: String { get }
     var nextItems: [DataPickerItem]? { get }
 }
 
 extension DataPickerItem {
-    var nextItems: [DataPickerItem]? {
+    public var nextItems: [DataPickerItem]? {
         return nil
     }
 }
@@ -38,20 +38,20 @@ extension Array where Element: DataPickerItem {
 }
 
 extension String: DataPickerItem {
-    var displayName: String {
+    public var displayName: String {
         return self
     }
 }
 
-final class DataPickerCtrlr: UIViewController {
-    struct Style {
+public final class DataPickerCtrlr: UIViewController {
+    public struct Style {
         static var titleFont = 16.font
         static var titleColor = 0x333333.hexColor
         static var backgroundColor = UIColor.white
     }
 
-    var completion: ((IndexPath) -> Void)?
-    var selectedPath: IndexPath
+    public var completion: ((IndexPath) -> Void)?
+    public var selectedPath: IndexPath
     
     private let pickerView = UIPickerView()
     private let animator = DatePickerAnimator(viewHeight: 260)
@@ -59,7 +59,7 @@ final class DataPickerCtrlr: UIViewController {
     private let depth: Int
     private let items: [DataPickerItem]
     
-    init(items: [DataPickerItem], depth: Int = 1, title: String? = nil) {
+    public init(items: [DataPickerItem], depth: Int = 1, title: String? = nil) {
         self.items = items
         self.depth = depth
         pickerTitle = title
@@ -74,7 +74,7 @@ final class DataPickerCtrlr: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Style.backgroundColor
         setupView()
@@ -131,11 +131,11 @@ private extension DataPickerCtrlr {
 }
 
 extension DataPickerCtrlr: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return depth
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var componentItems: [DataPickerItem]? = items
         for idx in 0..<component {
             let index = selectedPath[idx]
@@ -145,7 +145,7 @@ extension DataPickerCtrlr: UIPickerViewDataSource, UIPickerViewDelegate {
         return componentItems?.count ?? 0
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         var componentItems: [DataPickerItem]? = items
         for idx in 0..<component {
             let index = selectedPath[idx]
@@ -155,7 +155,7 @@ extension DataPickerCtrlr: UIPickerViewDataSource, UIPickerViewDelegate {
         return componentItems?[row].displayName
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedPath[component] = row
         for idx in component+1..<depth {
             selectedPath[idx] = 0

@@ -11,21 +11,21 @@ import UIKit
 import RxSwift
 import Bricking
 
-final class PickView: UIView {
+public final class PickView: UIView {
     
-    struct Style {
+    public struct Style {
         static var backgroundColor = UIColor.white
     }
     
-    var completion: ((IndexPath) -> Void)?
-    var selectedPath: IndexPath {
+    public var completion: ((IndexPath) -> Void)?
+    public var selectedPath: IndexPath {
         didSet {
-            indicatorView.value = self.getValue()
+            indicatorView.value = getSelectValue()
         }
     }
     
-    var indicatorView: IndicatorFormView!
-    let pickerView = UIPickerView()
+    public var indicatorView: IndicatorFormView!
+    private let pickerView = UIPickerView()
     private let depth: Int
     private let items: [DataPickerItem]
     private let barHeight: CGFloat
@@ -41,7 +41,7 @@ final class PickView: UIView {
         }
     }
     
-    init(title: String, placeholder: String? = nil, items: [DataPickerItem], depth: Int = 1, selectedPath: IndexPath? = nil, barHeight: CGFloat = 44) {
+    public init(title: String, placeholder: String? = nil, items: [DataPickerItem], depth: Int = 1, selectedPath: IndexPath? = nil, barHeight: CGFloat = 44) {
         assert(items.count > 0, "没有选项")
         self.items = items
         self.depth = depth
@@ -51,7 +51,7 @@ final class PickView: UIView {
     
         self.clipsToBounds = true
         self.backgroundColor = Style.backgroundColor
-        indicatorView = IndicatorFormView(title: title, placeholder: placeholder, value: self.getValue())
+        indicatorView = IndicatorFormView(title: title, placeholder: placeholder, value: getSelectValue())
         indicatorView.seperator.isHidden = true
         indicatorView.backgroundColor = Style.backgroundColor
         indicatorView.tap = { [unowned self] in
@@ -79,18 +79,18 @@ final class PickView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: isExpand ? barHeight + pickHeight : barHeight)
     }
     
-    func getValue() -> String {
+    private func getSelectValue() -> String {
         var value = ""
         var curItems: [DataPickerItem]? = items
         var idx = 0
         while curItems != nil && idx < self.selectedPath.count {
             let itemIdx = self.selectedPath[idx]
             guard itemIdx < curItems!.count else {
-                print("这里可能出错了")
+                print("selectedPath与数据源不一致")
                 break
             }
             
@@ -108,11 +108,11 @@ final class PickView: UIView {
 }
 
 extension PickView: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return depth
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var componentItems: [DataPickerItem]? = items
         for idx in 0..<component {
             let index = selectedPath[idx]
@@ -122,7 +122,7 @@ extension PickView: UIPickerViewDataSource, UIPickerViewDelegate {
         return componentItems?.count ?? 0
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         var componentItems: [DataPickerItem]? = items
         for idx in 0..<component {
             let index = selectedPath[idx]
@@ -132,7 +132,7 @@ extension PickView: UIPickerViewDataSource, UIPickerViewDelegate {
         return componentItems?[row].displayName
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedPath[component] = row
         for idx in component+1..<depth {
             selectedPath[idx] = 0

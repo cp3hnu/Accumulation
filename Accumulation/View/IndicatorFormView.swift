@@ -9,15 +9,15 @@
 import UIKit
 import Bricking
 
-enum IndicatorFormStyle {
+public enum IndicatorFormStyle {
     case `default`
     case valueAlignLeft(offset: CGFloat)
     case image(imageSize: CGFloat, imageSpace: CGFloat)
     case imageSubtitle(imageSize: CGFloat, imageSpace: CGFloat)
 }
 
-final class IndicatorFormView: UIView {
-    struct Style {
+public final class IndicatorFormView: UIView {
+    public struct Style {
         static var textFont = 16.font
         static var detailTextFont = 16.font
         static var placeholderFont = 16.font
@@ -29,18 +29,18 @@ final class IndicatorFormView: UIView {
         static var backgroundColor = UIColor.white
     }
     
-    var tap: (() -> Void)?
+    public var tap: (() -> Void)?
     
-    let textLabel = UILabel().font(Style.textFont).textColor(Style.textColor)
-    let detailTextLabel = UILabel().font(Style.detailTextFont).textColor(Style.detailTextColor)
-    let placeholderLabel = UILabel().font(Style.placeholderFont).textColor(Style.placeholderColor)
-    let imageView = UIImageView()
-    let seperator = UIView.seperator()
-    let indicator = UIImageView(image: Style.indicatorImage)
-    let style: IndicatorFormStyle
+    public let textLabel = UILabel().font(Style.textFont).textColor(Style.textColor)
+    public let detailTextLabel = UILabel().font(Style.detailTextFont).textColor(Style.detailTextColor)
+    public let placeholderLabel = UILabel().font(Style.placeholderFont).textColor(Style.placeholderColor)
+    public let imageView = UIImageView()
+    public let seperator = UIView.seperator()
+    public let indicator = UIImageView(image: Style.indicatorImage)
+    private let style: IndicatorFormStyle
     
     // In default and valueAlignLeft style
-    var value: String? {
+    public var value: String? {
         get {
             return detailTextLabel.text
         }
@@ -51,7 +51,7 @@ final class IndicatorFormView: UIView {
     }
     
     // In imageSubtitle style
-    var text: String? {
+    public var text: String? {
         get {
             return textLabel.text
         }
@@ -61,7 +61,7 @@ final class IndicatorFormView: UIView {
     }
     
     // In imageSubtitle style
-    var detailText: String? {
+    public var detailText: String? {
         get {
             return detailTextLabel.text
         }
@@ -71,7 +71,7 @@ final class IndicatorFormView: UIView {
     }
     
     // In image or imageSubtitle style
-    var image: UIImage? {
+    public var image: UIImage? {
         get {
             return imageView.image
         }
@@ -81,7 +81,7 @@ final class IndicatorFormView: UIView {
     }
     
     // In default and valueAlignLeft style
-    convenience init(title: String, placeholder: String? = nil, offset: CGFloat? = nil, value: String? = nil) {
+    public convenience init(title: String, placeholder: String? = nil, offset: CGFloat? = nil, value: String? = nil) {
         let style: IndicatorFormStyle = offset != nil ? .valueAlignLeft(offset: offset!) : .default
         self.init(style: style)
         
@@ -91,7 +91,7 @@ final class IndicatorFormView: UIView {
         placeholderLabel.isHidden = value != nil
     }
 
-    init(style: IndicatorFormStyle) {
+    public init(style: IndicatorFormStyle) {
         self.style = style
         super.init(frame: CGRect.zero)
         backgroundColor = Style.backgroundColor
@@ -128,7 +128,7 @@ final class IndicatorFormView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         var height: CGFloat = 44
         switch style {
         case .default, .valueAlignLeft:
