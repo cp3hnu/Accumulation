@@ -44,9 +44,15 @@
 		35161337246D3F990078CE74 /* UIButton+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612EE246D35410078CE74 /* UIButton+Style.swift */; };
 		35161338246D3F990078CE74 /* UIColor+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612F1246D35410078CE74 /* UIColor+Style.swift */; };
 		35161339246D3F990078CE74 /* UIFont+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612F0246D35410078CE74 /* UIFont+Style.swift */; };
+		3559F5D424DAD7A500F3E56A /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3559F5D324DAD7A500F3E56A /* Array+Ext.swift */; };
 		3594F38C24B41BD90037C8B9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594F38B24B41BD90037C8B9 /* LoadingView.swift */; };
 		3594F38E24B41E7C0037C8B9 /* PickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3594F38D24B41E7C0037C8B9 /* PickView.swift */; };
+		35D21F6B24B598F70066F2A7 /* InfoFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D21F6A24B598F70066F2A7 /* InfoFormView.swift */; };
+		35D21F6D24B59FB20066F2A7 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D21F6C24B59FB20066F2A7 /* Colours.swift */; };
+		35D21F7124B5C3290066F2A7 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D21F7024B5C3290066F2A7 /* UIView+Animation.swift */; };
+		35D21F7B24B9FB0D0066F2A7 /* Value1TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D21F7A24B9FB0C0066F2A7 /* Value1TableCell.swift */; };
 		35D2492724B45A6500B31F43 /* Accumulation.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35D2492624B45A6500B31F43 /* Accumulation.xcassets */; };
+		35D2493824B5750F00B31F43 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D2493724B5750F00B31F43 /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,9 +90,15 @@
 		3516132D246D3A750078CE74 /* UIButton+Closure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Closure.swift"; sourceTree = "<group>"; };
 		35161332246D3C520078CE74 /* SwitchFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchFormView.swift; sourceTree = "<group>"; };
 		35161333246D3C520078CE74 /* IndicatorFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorFormView.swift; sourceTree = "<group>"; };
+		3559F5D324DAD7A500F3E56A /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		3594F38B24B41BD90037C8B9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3594F38D24B41E7C0037C8B9 /* PickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickView.swift; sourceTree = "<group>"; };
+		35D21F6A24B598F70066F2A7 /* InfoFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoFormView.swift; sourceTree = "<group>"; };
+		35D21F6C24B59FB20066F2A7 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
+		35D21F7024B5C3290066F2A7 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		35D21F7A24B9FB0C0066F2A7 /* Value1TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value1TableCell.swift; sourceTree = "<group>"; };
 		35D2492624B45A6500B31F43 /* Accumulation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Accumulation.xcassets; sourceTree = "<group>"; };
+		35D2493724B5750F00B31F43 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +153,7 @@
 			children = (
 				35161329246D3A750078CE74 /* Tap */,
 				351612EB246D34E90078CE74 /* Bundle+Ext.swift */,
+				35D21F6C24B59FB20066F2A7 /* Colours.swift */,
 				351612E3246D34E90078CE74 /* DispatchQueue+Ext.swift */,
 				351612E8246D34E90078CE74 /* FileManager+Ext.swift */,
 				351612E9246D34E90078CE74 /* NSAttributedString+Ext.swift */,
@@ -153,6 +166,9 @@
 				351612E5246D34E90078CE74 /* UIImage+Ext.swift */,
 				351612E1246D34E80078CE74 /* UILabel+Ext.swift */,
 				351612E4246D34E90078CE74 /* UIView+Ext.swift */,
+				35D2493724B5750F00B31F43 /* UIViewController+Ext.swift */,
+				35D21F7024B5C3290066F2A7 /* UIView+Animation.swift */,
+				3559F5D324DAD7A500F3E56A /* Array+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -162,7 +178,9 @@
 			children = (
 				3594F38B24B41BD90037C8B9 /* LoadingView.swift */,
 				35161333246D3C520078CE74 /* IndicatorFormView.swift */,
+				35D21F6A24B598F70066F2A7 /* InfoFormView.swift */,
 				35161332246D3C520078CE74 /* SwitchFormView.swift */,
+				35D21F7A24B9FB0C0066F2A7 /* Value1TableCell.swift */,
 				3594F38D24B41E7C0037C8B9 /* PickView.swift */,
 			);
 			path = View;
@@ -307,10 +325,12 @@
 			files = (
 				35161334246D3C520078CE74 /* SwitchFormView.swift in Sources */,
 				35161311246D35CB0078CE74 /* DatePickerAnimator.swift in Sources */,
+				35D2493824B5750F00B31F43 /* UIViewController+Ext.swift in Sources */,
 				35161302246D35710078CE74 /* UIView+Ext.swift in Sources */,
 				35161300246D35710078CE74 /* UIImage+Ext.swift in Sources */,
 				3516130F246D35CB0078CE74 /* AlertCtrlr.swift in Sources */,
 				3594F38C24B41BD90037C8B9 /* LoadingView.swift in Sources */,
+				35D21F6D24B59FB20066F2A7 /* Colours.swift in Sources */,
 				351612F8246D35710078CE74 /* FileManager+Ext.swift in Sources */,
 				35161330246D3A750078CE74 /* TapActionWrapper.swift in Sources */,
 				35161331246D3A750078CE74 /* UIButton+Closure.swift in Sources */,
@@ -318,6 +338,7 @@
 				35161335246D3C520078CE74 /* IndicatorFormView.swift in Sources */,
 				351612F6246D35710078CE74 /* Bundle+Ext.swift in Sources */,
 				3516132E246D3A750078CE74 /* UIBarButtonItem+Closure.swift in Sources */,
+				35D21F6B24B598F70066F2A7 /* InfoFormView.swift in Sources */,
 				35161316246D35CB0078CE74 /* DatePickerTransition.swift in Sources */,
 				35161301246D35710078CE74 /* UILabel+Ext.swift in Sources */,
 				35161314246D35CB0078CE74 /* DataPickerCtrlr.swift in Sources */,
@@ -329,8 +350,11 @@
 				35161312246D35CB0078CE74 /* AlertAnimator.swift in Sources */,
 				3516132F246D3A750078CE74 /* UIView+Closure.swift in Sources */,
 				351612FB246D35710078CE74 /* Optional+Ext.swift in Sources */,
+				3559F5D424DAD7A500F3E56A /* Array+Ext.swift in Sources */,
 				3516130D246D35CB0078CE74 /* AlertTransition.swift in Sources */,
+				35D21F7B24B9FB0D0066F2A7 /* Value1TableCell.swift in Sources */,
 				35161339246D3F990078CE74 /* UIFont+Style.swift in Sources */,
+				35D21F7124B5C3290066F2A7 /* UIView+Animation.swift in Sources */,
 				35161315246D35CB0078CE74 /* DimmingAnimator.swift in Sources */,
 				35161336246D3F990078CE74 /* UIBarButtonItem+Style.swift in Sources */,
 				351612FC246D35710078CE74 /* String+Ext.swift in Sources */,
@@ -546,7 +570,7 @@
 			repositoryURL = "https://github.com/cp3hnu/Bricking";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.3;
+				minimumVersion = 4.1.1;
 			};
 		};
 		3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */ = {

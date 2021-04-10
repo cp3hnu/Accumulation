@@ -14,7 +14,7 @@ import Bricking
 public final class PickView: UIView {
     
     public struct Style {
-        static var backgroundColor = UIColor.white
+        public static var backgroundColor = UIColor.white
     }
     
     public var completion: ((IndexPath) -> Void)?

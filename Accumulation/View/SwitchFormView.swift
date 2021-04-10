@@ -11,9 +11,9 @@ import Bricking
 
 public final class SwitchFormView: UIView {
     public struct Style {
-        static var font = 16.font
-        static var textColor = 0x333333.hexColor
-        static var backgroundColor = UIColor.white
+        public static var font = 16.font
+        public static var textColor = UIColor.label
+        public static var backgroundColor = UIColor.tertiarySystemBackground
     }
     
     public let titleLabel = UILabel().font(Style.font).textColor(Style.textColor)

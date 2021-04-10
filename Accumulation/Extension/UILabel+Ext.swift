@@ -23,6 +23,13 @@ extension UILabel {
     }
     
     @discardableResult
+    public func fontStyle(_ style: UIFont.TextStyle) -> Self {
+        self.font = UIFont.preferredFont(forTextStyle: style)
+        self.adjustsFontForContentSizeCategory = true
+        return self
+    }
+    
+    @discardableResult
     public func textColor(_ color: UIColor) -> Self {
         self.textColor = color
         return self

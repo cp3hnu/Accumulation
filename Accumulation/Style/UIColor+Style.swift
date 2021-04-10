@@ -98,16 +98,6 @@ extension UIColor {
         return 0x4497FF.hexColor
     }
     
-    /// 分隔线颜色，(221, 221, 221)
-    public static var seperatorColor: UIColor {
-        return 221.grayColor
-    }
-    
-    /// 背景颜色，(245, 245, 245)
-    public static var backgroudColor: UIColor {
-        return 245.grayColor
-    }
-    
     /// 常用按钮字体颜色，(105, 68, 24)
     public static var buttonTextColor: UIColor {
         return UIColor(105, 68, 24)
@@ -126,5 +116,19 @@ extension UIColor {
     /// 错误颜色
     public static var wrongColor: UIColor {
         return 0xFF4545.hexColor
+    }
+    
+    // X 关闭颜色
+    public static var dynamicCloseColor: UIColor {
+        return UIColor { traitCollection -> UIColor in
+            return traitCollection.userInterfaceStyle == .dark ? UIColor.white : 0x333333.hexColor
+        }
+    }
+    
+    // 自定义的 SecondaryLabel 颜色
+    public static var dynamicSecondaryLabel: UIColor {
+        return UIColor { traitCollection -> UIColor in
+            return traitCollection.userInterfaceStyle == .dark ? 0xebebf5.hexColor : 0x333333.hexColor
+        }
     }
 }

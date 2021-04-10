@@ -115,6 +115,20 @@ extension String {
     public func trimmingAllSpace() -> String {
         return self.replacingOccurrences(of: " ", with: "")
     }
+    
+    // 全英文是正确的
+    public var words: [SubSequence] {
+        var words: [SubSequence] = []
+        enumerateSubstrings(in: startIndex..., options: .byWords) { _, range, _, _ in
+            words.append(self[range])
+        }
+        return words
+    }
+    
+    // 全英文是正确的
+    public var wordCount: Int {
+        return words.count
+    }
 }
 
 

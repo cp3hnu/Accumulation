@@ -11,6 +11,7 @@ import UIKit
 
 public final class AlertAnimator: NSObject, UIViewControllerTransitioningDelegate {
     
+    public var bgColorAlpha: CGFloat = 0.3
     private let canDismiss: Bool
     private let animator: AlertTransition
     
@@ -34,7 +35,7 @@ public final class AlertAnimator: NSObject, UIViewControllerTransitioningDelegat
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         let presenter = DimmingPresentation(presentedViewController: presented, presenting: presenting)
         presenter.canDismiss = canDismiss
-        presenter.alpha = 0.4
+        presenter.bgColorAlpha = bgColorAlpha
         return presenter
     }
 }

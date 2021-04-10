@@ -13,4 +13,13 @@ extension DispatchQueue {
     public func delay(_ delay: TimeInterval, execute closure: @escaping () -> Void) {
         asyncAfter(deadline: .now() + delay, execute: closure)
     }
+
+    public static func onGlobal(global closure: @escaping () -> Void, onMain mainClosure: @escaping () -> Void) {
+        DispatchQueue.global().async {
+            closure()
+            DispatchQueue.main.async {
+                mainClosure()
+            }
+        }
+    }
 }

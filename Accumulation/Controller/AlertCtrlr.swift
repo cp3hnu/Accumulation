@@ -29,6 +29,17 @@ extension AlertViewContent {
 public typealias AlertContentView = UIView & AlertViewContent
 extension UILabel: AlertViewContent {}
 public final class AlertContainerView: UIView, AlertViewContent {}
+extension UITextField: AlertViewContent {
+    public var returnValue: Any? {
+        return text
+    }
+    
+    public var isPreferredEnabled: Observable<Bool> {
+        return self.rx.value.map { text -> Bool in
+            !(text ?? "").isEmpty
+        }
+    }
+}
 
 public enum AlertStyle {
     case desc(String?)
@@ -39,35 +50,37 @@ public enum AlertStyle {
 public final class AlertCtrlr: UIViewController {
     
     public struct Style {
-        static var titleFont = 20.boldFont
-        static var titleColor = UIColor.black
-        static var descFont = 18.font
-        static var descColor = UIColor.black
-        static var buttonFont = 18.font
-        static var cancelBtnNorColor = 0x333333.hexColor
-        static var cancelBtnHigColor = 0x333333.hexColor
-        static var cancelBtnBgNorColor = UIColor.white
-        static var cancelBtnBgHigColor = UIColor.white
-        static var preferBtnNorColor = UIColor(0, 122, 255)
-        static var preferBtnHigColor = UIColor(0, 122, 255)
-        static var preferBtnDisColor = 0x999999.hexColor
-        static var preferBtnBgNorColor = UIColor.white
-        static var preferBtnBgHigColor = UIColor.white
-        static var preferBtnBgDisColor = UIColor.white
-        static var destructiveBtnNorColor = UIColor.red
-        static var destructiveBtnHigColor = UIColor.red
-        static var destructiveBtnDisColor = UIColor.red
-        static var destructiveBtnBgNorColor = UIColor.white
-        static var destructiveBtnBgHigColor = UIColor.white
-        static var destructiveBtnBgDisColor = UIColor.white
-        static var backgroundColor = UIColor.white
-        static var closeTintColor = 0x666666.hexColor
+        public static var titleFont = 20.boldFont
+        public static var titleColor = UIColor.label
+        public static var descFont = 18.font
+        public static var descColor = UIColor.label
+        public static var buttonFont = 18.font
+        public static var cancelBtnNorColor = UIColor.dynamicSecondaryLabel
+        public static var cancelBtnHigColor = UIColor.dynamicSecondaryLabel
+        public static var preferBtnNorColor = UIColor.systemBlue
+        public static var preferBtnHigColor = UIColor.systemBlue
+        public static var preferBtnDisColor = UIColor.tertiaryLabel
+        public static var destructiveBtnNorColor = UIColor.systemRed
+        public static var destructiveBtnHigColor = UIColor.systemRed
+        public static var destructiveBtnDisColor = UIColor.systemRed
+        public static var cancelBtnBgNorColor = UIColor.clear
+        public static var cancelBtnBgHigColor = UIColor.clear
+        public static var preferBtnBgNorColor = UIColor.clear
+        public static var preferBtnBgHigColor = UIColor.clear
+        public static var preferBtnBgDisColor = UIColor.clear
+        public static var destructiveBtnBgNorColor = UIColor.clear
+        public static var destructiveBtnBgHigColor = UIColor.clear
+        public static var destructiveBtnBgDisColor = UIColor.clear
+        public static var backgroundColor = UIColor.systemBackground
+        public static var closeTintColor = UIColor.dynamicCloseColor
     }
     
     public var dismissed: ((Bool, Any?) -> (Void))?
     public var widthPercentage: CGFloat = 65
+    public var widthContant: CGFloat? = nil
     public var destructive: Bool = false
-    public var hasClose: Bool = true
+    public var hasClose: Bool = false
+    public let animator = AlertAnimator()
     
     public let wrappedView = UIView()
     private let disposeBag = DisposeBag()
@@ -75,7 +88,6 @@ public final class AlertCtrlr: UIViewController {
     private let style: AlertStyle
     private let cancelTitle: String?
     private let preferTitle: String?
-    private let animator = AlertAnimator()
     
     public init(title: String?, style: AlertStyle, cancelTitle: String? = nil, preferTitle: String?) {
         self.titleText = title
@@ -85,6 +97,11 @@ public final class AlertCtrlr: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = self.animator
+        #if targetEnvironment(macCatalyst)
+        animator.bgColorAlpha = 0
+        #else
+        animator.bgColorAlpha = 0.3
+        #endif
     }
     
     public convenience init(title: String?, desc: String?, cancelTitle: String? = nil, preferTitle: String?) {
@@ -114,10 +131,13 @@ public final class AlertCtrlr: UIViewController {
 private extension AlertCtrlr {
     func setupView() {
         view.asv(wrappedView)
+        wrappedView.corner(10)
         wrappedView.backgroundColor = Style.backgroundColor
-        wrappedView.centerInContainer().width(widthPercentage%)
-        wrappedView.layer.cornerRadius = 10
-        wrappedView.layer.masksToBounds = true
+        if let constant = widthContant {
+            wrappedView.centerInContainer().width(constant)
+        } else {
+           wrappedView.centerInContainer().width(widthPercentage%)
+        }
         
         let titleLabel = UILabel().font(Style.titleFont).textColor(Style.titleColor).alignCenter().lines(0).text(titleText)
         let contentView = createContentView()

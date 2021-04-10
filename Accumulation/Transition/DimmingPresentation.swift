@@ -10,17 +10,17 @@ import UIKit
 
 public final class DimmingPresentation: UIPresentationController {
     
-    var canDismiss = true
-    var alpha: CGFloat = 0.65 {
+    public var canDismiss = true
+    public var bgColorAlpha: CGFloat = 0.65 {
         didSet {
-            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alpha)
+            dimmingView.backgroundColor = UIColor(white: 0.0, alpha: bgColorAlpha)
         }
     }
     private let dimmingView = UIView()
     
     public override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
-        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: alpha)
+        dimmingView.backgroundColor = UIColor(white: 0.0, alpha: bgColorAlpha)
         dimmingView.alpha = 0.0
         dimmingView.addTapAction { [unowned self] in
             self.dismiss()

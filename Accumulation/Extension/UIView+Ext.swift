@@ -41,7 +41,7 @@ extension UIView {
 
 // MARK: - Seperator
 extension UIView {
-    public static func seperator(color: UIColor = UIColor.seperatorColor) -> UIView {
+    public static func seperator(color: UIColor = UIColor.separator) -> UIView {
         return UIView().backgroundColor(color)
     }
 }
@@ -101,55 +101,5 @@ extension UIView {
         maskLayer.frame = bounds
         maskLayer.path = maskPath.cgPath
         self.layer.mask = maskLayer
-    }
-}
-
-// MARK: - 动画
-extension UIView {
-    public func waggling() {
-        let from = CATransform3DIdentity
-        let to = CATransform3DTranslate(from, 15, 0, 0)
-        let anim = CABasicAnimation(keyPath: "transform")
-        anim.fromValue = from
-        anim.toValue = to
-        anim.repeatCount = 3
-        anim.autoreverses = true
-        anim.duration = 0.1/3.0
-        
-        self.layer.add(anim, forKey: "animation.waggling")
-    }
-    
-    public func scaleUp(_ scale: CGFloat, duration: CFTimeInterval = 0.3) {
-        let from = CATransform3DIdentity
-        let to = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
-        let anim = CABasicAnimation(keyPath: "transform")
-        anim.fromValue = from
-        anim.toValue = to
-        anim.autoreverses = true
-        anim.duration = 0.3
-        anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        
-        self.layer.add(anim, forKey: "animation.scaleUp")
-    }
-    
-    public func fadeTransition(_ duration: CFTimeInterval = 0.3) {
-        let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            CAMediaTimingFunctionName.easeInEaseOut)
-        animation.type = CATransitionType.fade
-        animation.duration = duration
-        layer.add(animation, forKey: "animation.fadeTransition")
-    }
-    
-    public func fadeInOut() {
-        let anim = CABasicAnimation(keyPath: "opacity")
-        anim.fromValue = 1
-        anim.toValue = 0
-        anim.autoreverses = true
-        anim.duration = 1
-        anim.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        anim.repeatCount = Float.infinity
-        
-        self.layer.add(anim, forKey: "animation.fadeInOut")
     }
 }

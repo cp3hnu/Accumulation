@@ -18,19 +18,19 @@ public enum IndicatorFormStyle {
 
 public final class IndicatorFormView: UIView {
     public struct Style {
-        static var textFont = 16.font
-        static var detailTextFont = 16.font
-        static var placeholderFont = 16.font
-        static var textColor = 0x333333.hexColor
-        static var detailTextColor = 0x333333.hexColor
-        static var placeholderColor = UIColor(red: 0, green: 0, blue: 0.1, alpha: 0.22)
-        static var indicatorImage = UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: UIImage.SymbolWeight.regular))
-        static var indicatorTintColor = 0x333333.hexColor
-        static var backgroundColor = UIColor.white
+        public static var textFont = 16.font
+        public static var detailTextFont = 16.font
+        public static var placeholderFont = 16.font
+        public static var textColor = UIColor.label
+        public static var detailTextColor = UIColor.label
+        public static var placeholderColor = UIColor.placeholderText
+        public static var indicatorImageConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+        public static var indicatorImage = UIImage(systemName: "chevron.right", withConfiguration: indicatorImageConfig)
+        public static var indicatorColor = UIColor.label
+        public static var backgroundColor = UIColor.tertiarySystemBackground
     }
     
     public var tap: (() -> Void)?
-    
     public let textLabel = UILabel().font(Style.textFont).textColor(Style.textColor)
     public let detailTextLabel = UILabel().font(Style.detailTextFont).textColor(Style.detailTextColor)
     public let placeholderLabel = UILabel().font(Style.placeholderFont).textColor(Style.placeholderColor)
@@ -95,7 +95,7 @@ public final class IndicatorFormView: UIView {
         self.style = style
         super.init(frame: CGRect.zero)
         backgroundColor = Style.backgroundColor
-        indicator.tintColor = Style.indicatorTintColor
+        indicator.tintColor = Style.indicatorColor
         
         asv(
             imageView,
