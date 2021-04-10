@@ -142,12 +142,16 @@ extension UIDevice {
     
     /// 判断当前设备是不是竖屏
     public var isPortrait: Bool {
-        return UIApplication.shared.statusBarOrientation.isPortrait
+        return self.statusBarOrientation?.isPortrait ?? true
     }
     
     /// 判断当前设备是不是横屏
     public var isLandscape: Bool {
-        return UIApplication.shared.statusBarOrientation.isLandscape
+        return self.statusBarOrientation?.isLandscape ?? false
+    }
+    
+    public var statusBarOrientation: UIInterfaceOrientation? {
+        return UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
     }
     
     /// 状态栏的高度
