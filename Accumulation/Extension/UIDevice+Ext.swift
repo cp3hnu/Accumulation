@@ -150,6 +150,7 @@ extension UIDevice {
         return self.statusBarOrientation?.isLandscape ?? false
     }
     
+    /// 获取横竖屏
     public var statusBarOrientation: UIInterfaceOrientation? {
         return UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation
     }

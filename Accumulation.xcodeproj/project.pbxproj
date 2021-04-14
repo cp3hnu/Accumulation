@@ -99,6 +99,7 @@
 		35D21F7A24B9FB0C0066F2A7 /* Value1TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value1TableCell.swift; sourceTree = "<group>"; };
 		35D2492624B45A6500B31F43 /* Accumulation.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Accumulation.xcassets; sourceTree = "<group>"; };
 		35D2493724B5750F00B31F43 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		EC25A3AB2626775500BF2DF6 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 		351612A2246D29C40078CE74 = {
 			isa = PBXGroup;
 			children = (
+				EC25A3AB2626775500BF2DF6 /* Package.swift */,
 				351612D0246D32200078CE74 /* Accumulation */,
 				351612AC246D29C40078CE74 /* Products */,
 			);
@@ -498,11 +500,13 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Accumulation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.funny.learning.accumulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -528,11 +532,13 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Accumulation/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.funny.learning.accumulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
