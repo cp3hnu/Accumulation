@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/cp3hnu/Bricking.git", from: "4.1.1"),
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "5.1.1")
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.2.0")
     ],
     targets: [
         .target(name: "Accumulation", dependencies: ["Bricking", "RxSwift"], path: "Accumulation")
