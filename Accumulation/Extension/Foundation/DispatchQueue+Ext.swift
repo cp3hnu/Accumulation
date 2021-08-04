@@ -14,7 +14,7 @@ extension DispatchQueue {
         asyncAfter(deadline: .now() + delay, execute: closure)
     }
 
-    public static func onGlobal(global closure: @escaping () -> Void, onMain mainClosure: @escaping () -> Void) {
+    public class func onGlobal(global closure: @escaping () -> Void, onMain mainClosure: @escaping () -> Void) {
         DispatchQueue.global().async {
             closure()
             DispatchQueue.main.async {

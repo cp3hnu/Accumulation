@@ -117,8 +117,8 @@ extension String {
     }
     
     // 全英文是正确的
-    public var words: [SubSequence] {
-        var words: [SubSequence] = []
+    public var words: [Substring] {
+        var words: [Substring] = []
         enumerateSubstrings(in: startIndex..., options: .byWords) { _, range, _, _ in
             words.append(self[range])
         }
@@ -128,6 +128,17 @@ extension String {
     // 全英文是正确的
     public var wordCount: Int {
         return words.count
+    }
+}
+
+// MARK: - Range 和 NSRange 相互转化
+extension String {
+    public func range(from: NSRange) -> Range<String.Index>? {
+        return Range<String.Index>(from, in: self)
+    }
+    
+    public func nsRange(from: Range<String.Index>) -> NSRange {
+        return NSRange(from, in: self)
     }
 }
 

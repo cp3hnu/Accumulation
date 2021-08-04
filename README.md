@@ -19,3 +19,5 @@
 
 5. Expand the "Target Dependencies" group, and add `Accumulation.framework`.
 
+> NOTE：This project depends on `RxSwift` and `Bricking`，you don't need to add `RxSwift` and `Bricking` dependencies in your project.
+

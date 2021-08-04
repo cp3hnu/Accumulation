@@ -18,6 +18,7 @@ extension UIView {
         public static var rotate = "animation.rotate"
     }
     
+    // 抖动
     public func waggling(count: Int, tx: CGFloat = 15, ty: CGFloat = 0, duration: CFTimeInterval = 0.1) {
         let from = CATransform3DIdentity
         let to = CATransform3DTranslate(from, tx, ty, 0)

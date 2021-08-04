@@ -9,6 +9,7 @@
 import Foundation
 
 extension Array {
+    /// 根据某个属性进行冒泡排序
     public mutating func bubbleSwapProperty<Value>(from: Int, to: Int, property: WritableKeyPath<Element, Value>) {
         guard from >= 0 && to >= 0 && from < count && to < count && from != to else { return }
         

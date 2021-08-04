@@ -10,10 +10,10 @@ import UIKit
 
 // MARK: - Init
 extension UIColor {
-    public convenience init(rgbHexString: String) {
-        var hexString = rgbHexString
-        if rgbHexString.hasPrefix("#") {
-            hexString = String(rgbHexString.dropFirst())
+    public convenience init(hexColor: String) {
+        var hexString = hexColor
+        if hexColor.hasPrefix("#") {
+            hexString = String(hexColor.dropFirst())
         }
         
         #if DEBUG
@@ -96,8 +96,8 @@ extension UIColor {
 
 // MARK: - String
 extension String {
-    public var color: UIColor {
-        return UIColor(rgbHexString: self)
+    public var hexColor: UIColor {
+        return UIColor(hexColor: self)
     }
 }
 

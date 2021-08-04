@@ -11,7 +11,7 @@ import UIKit
 
 extension UIFont {
     // UINavigationBar
-    struct NaviBar {
+    public struct NaviBar {
         /// title font
         static var title: UIFont {
             return 18.boldFont
@@ -24,35 +24,35 @@ extension UIFont {
     }
     
     /// 一般用于次要信息, 提示性文字, 10pt
-    static var UltraLightTextFont: UIFont {
+    public static var ultraLightTextFont: UIFont {
         get {
             return 10.font
         }
     }
     
     /// 一般用于次要信息, 提示性文字, 12pt
-    static var LightTextFont: UIFont {
+    public static var lightTextFont: UIFont {
         get {
             return 12.font
         }
     }
     
     /// 标准文字, 一般用于正文, 文本内容, 14pt
-    static var ContentFont: UIFont {
+    public static var contentFont: UIFont {
         get {
             return 14.font
         }
     }
     
     /// 一般用于标题, 重要性文字, 16pt
-    static var TitleFont: UIFont {
+    public static var titleFont: UIFont {
         get {
             return 16.font
         }
     }
     
     /// 一般用于大号标题, 18pt
-    static var StrongTitleFont: UIFont {
+    public static var strongTitleFont: UIFont {
         get {
             return 18.font
         }

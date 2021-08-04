@@ -56,6 +56,12 @@ extension UIBarButtonItem {
         self.tapAction = block
     }
     
+    public func tap(_ action: @escaping TapAction) {
+        tapAction = action
+        self.target = self
+        self.action = #selector(UIBarButtonItem.tapped)
+    }
+    
     @objc private func tapped() {
         tapAction?()
     }

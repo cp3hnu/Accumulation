@@ -39,9 +39,9 @@ extension UIView {
     }
 }
 
-// MARK: - Seperator
+// MARK: - Separator
 extension UIView {
-    public static func seperator(color: UIColor = UIColor.separator) -> UIView {
+    public static func separator(color: UIColor = UIColor.compSeparator) -> UIView {
         return UIView().backgroundColor(color)
     }
 }
@@ -57,7 +57,7 @@ extension UIView {
     }
 }
 
-// MARK: - 设置边框的颜色8z
+// MARK: - 设置边框的颜色
 extension UIView {
     public enum Border {
         case left

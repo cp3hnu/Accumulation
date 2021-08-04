@@ -21,13 +21,15 @@ public final class IndicatorFormView: UIView {
         public static var textFont = 16.font
         public static var detailTextFont = 16.font
         public static var placeholderFont = 16.font
-        public static var textColor = UIColor.label
-        public static var detailTextColor = UIColor.label
-        public static var placeholderColor = UIColor.placeholderText
+        public static var textColor = UIColor.compLabel
+        public static var detailTextColor = UIColor.compLabel
+        public static var placeholderColor = UIColor.compPlaceholderText
+        @available(iOS 13.0, *)
         public static var indicatorImageConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+        @available(iOS 13.0, *)
         public static var indicatorImage = UIImage(systemName: "chevron.right", withConfiguration: indicatorImageConfig)
-        public static var indicatorColor = UIColor.label
-        public static var backgroundColor = UIColor.tertiarySystemBackground
+        public static var indicatorColor = UIColor.compLabel
+        public static var backgroundColor = UIColor.compTertiarySystemBackground
     }
     
     public var tap: (() -> Void)?
@@ -35,8 +37,8 @@ public final class IndicatorFormView: UIView {
     public let detailTextLabel = UILabel().font(Style.detailTextFont).textColor(Style.detailTextColor)
     public let placeholderLabel = UILabel().font(Style.placeholderFont).textColor(Style.placeholderColor)
     public let imageView = UIImageView()
-    public let seperator = UIView.seperator()
-    public let indicator = UIImageView(image: Style.indicatorImage)
+    public let separator = UIView.separator()
+    public let indicator = UIImageView()
     private let style: IndicatorFormStyle
     
     // In default and valueAlignLeft style
@@ -94,8 +96,14 @@ public final class IndicatorFormView: UIView {
     public init(style: IndicatorFormStyle) {
         self.style = style
         super.init(frame: CGRect.zero)
+        
         backgroundColor = Style.backgroundColor
         indicator.tintColor = Style.indicatorColor
+        if #available(iOS 13.0, *) {
+            indicator.image = Style.indicatorImage
+        } else {
+            indicator.image = #imageLiteral(resourceName: "cell-indicator")
+        }
         
         asv(
             imageView,
@@ -103,7 +111,7 @@ public final class IndicatorFormView: UIView {
             detailTextLabel,
             placeholderLabel,
             indicator,
-            seperator
+            separator
         )
         
         switch style {
@@ -118,7 +126,7 @@ public final class IndicatorFormView: UIView {
         }
         
         //indicator.width(8).height(13)
-        |-15-seperator.bottom(0).height(0.5)-0-|
+        |-15-separator.bottom(0).height(0.5)-0-|
         addTapAction { [unowned self] in
             self.tap?()
         }

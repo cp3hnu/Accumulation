@@ -12,6 +12,7 @@ import UIKit
 extension Double {
     public var twoDecimalPlaces: String { String(format: "%.2f", self) }
     public var cf: CGFloat { CGFloat(self) }
+    public var i: Int { Int(self) }
 }
 
 extension Int {

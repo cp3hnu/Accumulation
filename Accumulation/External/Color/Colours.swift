@@ -1,6 +1,6 @@
 //
 //  Colours.swift
-//  ColoursDemo
+//  Colours
 //
 //  Created by Ben Gordon on 12/27/14.
 //  Copyright (c) 2014 Ben Gordon. All rights reserved.
@@ -20,19 +20,19 @@ public extension Color {
     typealias TransformBlock = (CGFloat) -> CGFloat
     
     // MARK: - Enums
-    enum ColorScheme:Int {
+    enum ColorScheme: Int {
         case analagous = 0, monochromatic, triad, complementary
     }
     
-    enum ColorFormulation:Int {
+    enum ColorFormulation: Int {
         case rgba = 0, hsba, lab, cmyk
     }
     
-    enum ColorDistance:Int {
+    enum ColorDistance: Int {
         case cie76 = 0, cie94, cie2000
     }
     
-    enum ColorComparison:Int {
+    enum ColorComparison: Int {
         case darkness = 0, lightness, desaturated, saturated, red, green, blue
     }
     

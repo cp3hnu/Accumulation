@@ -19,6 +19,9 @@ public enum DeviceType: Int, CustomStringConvertible
     case dt_iPhone_X            // iPhoneX/XS/11 Pro
     case dt_iPhone_XR           // iPhoneXR/11
     case dt_iPhone_XS_Max       // iPhoneXS/11 Pro Max
+    case dt_iPhone_12           // iPhone12/12 Pro
+    case dt_iPhone_12_Mini      // iPhone12 mini
+    case dt_iPhone_12_Max       // iPhone12 Pro Max
     // iPad
     case dt_iPad                // iPad 1~2代或iPad mini 1代
     case dt_iPad_Retina         // iPad 3~6代或iPad Air 1~2代或iPad mini2~5代
@@ -45,6 +48,13 @@ public enum DeviceType: Int, CustomStringConvertible
             return "iPhoneXR/11"
         case .dt_iPhone_XS_Max:
             return "iPhoneXS/11 Pro Max"
+        case .dt_iPhone_12:
+            return "iPhone12/12 Pro"
+        case .dt_iPhone_12_Mini:
+            return "iPhone12 mini"
+        case .dt_iPhone_12_Max:
+            return "iPhone12 Pro Max"
+            
         case .dt_iPad:
             return "iPad 1~2代或iPad mini 1代"
         case .dt_iPad_Retina:
@@ -79,6 +89,10 @@ extension UIDevice {
         case CGSize(width: 828 , height: 1792): return .dt_iPhone_XR
         case CGSize(width: 750 , height: 1624): return .dt_iPhone_XR
         case CGSize(width: 1242, height: 2688): return .dt_iPhone_XS_Max
+        case CGSize(width: 1170 ,height: 2532): return .dt_iPhone_12
+        case CGSize(width: 1080 ,height: 2340): return .dt_iPhone_12_Mini
+        case CGSize(width: 1284 ,height: 2778): return .dt_iPhone_12_Max
+            
         // iPad
         case CGSize(width: 768 , height: 1024): return .dt_iPad
         case CGSize(width: 1536, height: 2048): return .dt_iPad_Retina
@@ -137,7 +151,17 @@ extension UIDevice {
     
     /// 判断当前设备是不是刘海屏
     public var isNotchScreen: Bool {
-        return isIPhoneX || isIPhoneXR || isIPhoneXSMax
+        switch deviceType {
+        case .dt_iPhone_X,
+             .dt_iPhone_XR,
+             .dt_iPhone_XS_Max,
+             .dt_iPhone_12,
+             .dt_iPhone_12_Mini,
+             .dt_iPhone_12_Max:
+            return true
+        default:
+            return false
+        }
     }
     
     /// 判断当前设备是不是竖屏

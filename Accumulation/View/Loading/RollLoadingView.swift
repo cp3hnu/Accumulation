@@ -1,36 +1,12 @@
 //
-//  LoadingView.swift
-//  CPLoading
+//  RollLoadingView.swift
+//  Accumulation
 //
-//  Created by ZhaoWei on 15/10/12.
-//  Copyright © 2015年 CSDEPT. All rights reserved.
+//  Created by cp3hnu on 2021/6/10.
+//  Copyright © 2021 CP3. All rights reserved.
 //
 
 import UIKit
-import RxSwift
-
-open class LoadingView: UIView {
-    private let disposeBag = DisposeBag()
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        NotificationCenter.default.rx.notification(UIApplication.didBecomeActiveNotification)
-            .subscribe(
-                onNext: { [weak self] _ in
-                    self?.restartLoading()
-                }
-            ).disposed(by: disposeBag)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    open func startLoading() {}
-    
-    open func stopLoading() {}
-    
-    open func restartLoading() {}
-}
 
 public final class RollLoadingView: LoadingView {
 
@@ -60,6 +36,7 @@ public final class RollLoadingView: LoadingView {
 
     public var duration: TimeInterval = 1.0
     public private(set) var isLoading = false
+    
     private let circleLayer: CAShapeLayer = CAShapeLayer()
     private let ringLayer: CAShapeLayer = CAShapeLayer()
     private let animationKey = "animation.rotation"
@@ -137,58 +114,3 @@ private extension RollLoadingView {
         circleLayer.path = circlePath.cgPath
     }
 }
-
-public final class GradientLoadingView: LoadingView {
-    private let imageView = UIImageView()
-    public private(set) var isLoading = false
-    public var duration: TimeInterval = 0.15
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        let bundle = Bundle(for: GradientLoadingView.self)
-        imageView.image = UIImage(named: "circle", in: bundle, compatibleWith: nil)
-        asv(imageView)
-        imageView.fillContainer()
-    }
-    
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    public override func startLoading() {
-        guard !isLoading else { return }
-
-        isLoading = true
-        
-        let from = CATransform3DIdentity
-        let to = CATransform3DRotate(CATransform3DIdentity, 0.5 * .pi, 0, 0, 1)
-        let anim = CABasicAnimation(keyPath: "transform")
-        anim.fromValue = from
-        anim.toValue = to
-        anim.repeatCount = Float.infinity
-        anim.duration = duration
-        anim.isCumulative = true
-        
-        imageView.layer.add(anim, forKey: "animation.rotate")
-    }
-
-    public override func stopLoading() {
-        guard isLoading else { return }
-
-        isLoading = false
-        imageView.layer.removeAnimation(forKey: "animation.rotate")
-    }
-    
-    public override func restartLoading() {
-        guard isLoading else { return }
-
-        isLoading = false
-        startLoading()
-    }
-}
-
-
-
-
-

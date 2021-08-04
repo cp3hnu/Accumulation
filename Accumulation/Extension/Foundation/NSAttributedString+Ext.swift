@@ -26,7 +26,7 @@ extension NSAttributedString {
         return maString
     }
     
-    // 查找，然后添加特性
+    // 一般查找方法，然后添加特性
     @discardableResult
     public func addAttribute(searchText text: String, attributes attrs: [NSAttributedString.Key: Any]) -> NSAttributedString {
         guard let range = self.string.range(of: text) else {
@@ -39,7 +39,7 @@ extension NSAttributedString {
         return maString
     }
     
-    // 根据使用情况一般是修改颜色和字体大小
+    // 只修改 颜色/字体
     @discardableResult
     public func append(string: String, color: UIColor? = nil, font: UIFont? = nil) -> NSAttributedString {
         var attributes: [NSAttributedString.Key: Any] = [:]
@@ -48,7 +48,7 @@ extension NSAttributedString {
         return append(string: string, attributes: attributes)
     }
     
-    // 根据使用情况一般是修改颜色和字体大小
+    // 查找，只修改 颜色/字体
     @discardableResult
     public func addAttribute(searchText text: String, color: UIColor? = nil, font: UIFont? = nil) -> NSAttributedString {
         var attributes: [NSAttributedString.Key: Any] = [:]
@@ -57,14 +57,14 @@ extension NSAttributedString {
         return addAttribute(searchText: text, attributes: attributes)
     }
     
-    // 给 range 内的字符串添加特性
+    // 给 Range 内的字符串添加特性
     @discardableResult
     public func addAttributes(_ attrs: [NSAttributedString.Key: Any] = [:], range: Range<String.Index>) -> NSAttributedString {
         let nsRange = self.string.nsRange(from: range)
         return addAttributes(attrs, nsRange: nsRange)
     }
     
-    // 给 range 内的字符串添加特性
+    // 给 NSRange 内的字符串添加特性
     @discardableResult
     public func addAttributes(_ attrs: [NSAttributedString.Key: Any] = [:], nsRange: NSRange) -> NSAttributedString {
         let maString = NSMutableAttributedString(attributedString: self)
@@ -80,17 +80,24 @@ extension String {
         return NSAttributedString(string: self, attributes: attrs)
     }
     
-    // 查找，然后添加特性
+    // 一般查找方法，然后添加特性
     public func attributed(searchText text: String, attributes attrs: [NSAttributedString.Key: Any]) -> NSAttributedString {
         return attributed().addAttribute(searchText: text, attributes: attrs)
     }
     
-    // 根据使用情况一般是修改 Paragraph style
+    // 只修改 Paragraph style
     public func attributed(paragraphStyle: NSParagraphStyle) -> NSAttributedString {
         return attributed(attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
     }
     
-    // 根据使用情况一般是修改颜色和字体大小
+    // 只修改 lineSpacing
+    public func attributed(lineSpacing: CGFloat) -> NSAttributedString {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = lineSpacing
+        return attributed(paragraphStyle: style)
+    }
+    
+    // 只修改 颜色/字体
     public func attributed(color: UIColor? = nil, font: UIFont? = nil) -> NSAttributedString {
         var attributes: [NSAttributedString.Key: Any] = [:]
         attributes[NSAttributedString.Key.foregroundColor] = color
@@ -98,7 +105,7 @@ extension String {
         return attributed(attributes: attributes)
     }
     
-    // 根据使用情况一般是修改颜色和字体大小
+    // 查找方法，只修改 颜色/字体
     public func attributed(searchText text: String, color: UIColor? = nil, font: UIFont? = nil) -> NSAttributedString {
         var attributes: [NSAttributedString.Key: Any] = [:]
         attributes[NSAttributedString.Key.foregroundColor] = color
@@ -134,13 +141,10 @@ extension UIImage {
     }
 }
 
-// MARK: - Range 和 NSRange 相互转化
-extension String {
-    public func range(from: NSRange) -> Range<String.Index>? {
-        return Range<String.Index>(from, in: self)
-    }
-    
-    public func nsRange(from: Range<String.Index>) -> NSRange {
-        return NSRange(from, in: self)
+// 计算NSAttributedString占用的高度
+// NSAttributedString要先设置字体大小等影响高度属性
+extension NSAttributedString {
+    public func height(boundWidth: CGFloat) -> CGFloat {
+        return boundingRect(with: CGSize(width: boundWidth, height: 0), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size.height
     }
 }

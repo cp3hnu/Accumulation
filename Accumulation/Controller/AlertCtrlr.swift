@@ -51,15 +51,15 @@ public final class AlertCtrlr: UIViewController {
     
     public struct Style {
         public static var titleFont = 20.boldFont
-        public static var titleColor = UIColor.label
+        public static var titleColor = UIColor.compLabel
         public static var descFont = 18.font
-        public static var descColor = UIColor.label
+        public static var descColor = UIColor.compLabel
         public static var buttonFont = 18.font
         public static var cancelBtnNorColor = UIColor.dynamicSecondaryLabel
         public static var cancelBtnHigColor = UIColor.dynamicSecondaryLabel
         public static var preferBtnNorColor = UIColor.systemBlue
         public static var preferBtnHigColor = UIColor.systemBlue
-        public static var preferBtnDisColor = UIColor.tertiaryLabel
+        public static var preferBtnDisColor = UIColor.compTertiaryLabel
         public static var destructiveBtnNorColor = UIColor.systemRed
         public static var destructiveBtnHigColor = UIColor.systemRed
         public static var destructiveBtnDisColor = UIColor.systemRed
@@ -71,7 +71,7 @@ public final class AlertCtrlr: UIViewController {
         public static var destructiveBtnBgNorColor = UIColor.clear
         public static var destructiveBtnBgHigColor = UIColor.clear
         public static var destructiveBtnBgDisColor = UIColor.clear
-        public static var backgroundColor = UIColor.systemBackground
+        public static var backgroundColor = UIColor.compSystemBackground
         public static var closeTintColor = UIColor.dynamicCloseColor
     }
     
@@ -153,11 +153,15 @@ private extension AlertCtrlr {
         )
         
         if hasClose {
-            let image = UIImage(systemName: "xmark")
-            let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .medium)
             let closeBtn = UIButton(type: .custom)
-            closeBtn.setImage(image, for: .normal)
-            closeBtn.setPreferredSymbolConfiguration(config, forImageIn: .normal)
+            if #available(iOS 13.0, *) {
+                let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .medium)
+                closeBtn.setPreferredSymbolConfiguration(config, forImageIn: .normal)
+                let image = UIImage(systemName: "xmark")
+                closeBtn.setImage(image, for: .normal)
+            } else {
+                closeBtn.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+            }
             closeBtn.tintColor = Style.closeTintColor
             closeBtn.tap { [unowned self] in
                 self.dismiss(animated: true, completion: nil)
@@ -212,7 +216,7 @@ private extension AlertCtrlr {
     
     func createButtonView(contentView: AlertContentView) -> UIView {
         let view = UIView()
-        let horSeperator = UIView.seperator()
+        let horSeperator = UIView.separator()
         view.asv(horSeperator)
         |horSeperator| ~ 0.5
         
@@ -246,7 +250,7 @@ private extension AlertCtrlr {
                 self.dismissed?(false, nil)
             }
             
-            let verSeperator = UIView.seperator()
+            let verSeperator = UIView.separator()
             view.asv(cancelButton, verSeperator, preferButton)
             |cancelButton--0--verSeperator--0--preferButton|
             preferButton.top(0.5).bottom(0)

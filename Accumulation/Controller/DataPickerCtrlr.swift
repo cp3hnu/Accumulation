@@ -21,7 +21,7 @@ extension DataPickerItem {
 }
 
 extension Array where Element: DataPickerItem {
-    func items(for path: IndexPath) -> [DataPickerItem] {
+    public subscript(path: IndexPath) -> [DataPickerItem] {
         var resultItems = [DataPickerItem]()
         var nextItems: [DataPickerItem]? = self
         var index = 0

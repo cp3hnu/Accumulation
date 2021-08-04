@@ -52,7 +52,7 @@ public final class PickView: UIView {
         self.clipsToBounds = true
         self.backgroundColor = Style.backgroundColor
         indicatorView = IndicatorFormView(title: title, placeholder: placeholder, value: getSelectValue())
-        indicatorView.seperator.isHidden = true
+        indicatorView.separator.isHidden = true
         indicatorView.backgroundColor = Style.backgroundColor
         indicatorView.tap = { [unowned self] in
             self.isExpand = !self.isExpand
@@ -64,15 +64,15 @@ public final class PickView: UIView {
             pickerView.selectRow(self.selectedPath[i], inComponent: i, animated: false)
         }
         
-        let seperator = UIView.seperator()
-        asv(indicatorView, pickerView, seperator)
+        let separator = UIView.separator()
+        asv(indicatorView, pickerView, separator)
         layout(
             0,
             |indicatorView| ~ barHeight,
             0,
             |-15-pickerView.centerHorizontally()-15-| ~ pickHeight
         )
-        |-15-seperator|.bottom(0).height(0.5)
+        |-15-separator|.bottom(0).height(0.5)
     }
     
     required init?(coder: NSCoder) {

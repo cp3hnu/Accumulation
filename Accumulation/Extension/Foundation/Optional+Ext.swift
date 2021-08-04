@@ -21,3 +21,13 @@ extension Optional where Wrapped: Equatable  {
         }
     }
 }
+
+extension Optional where Wrapped == String {
+    public var nilToEmpty: String {
+        if self == Optional.none {
+            return ""
+        } else {
+            return self!
+        }
+    }
+}
