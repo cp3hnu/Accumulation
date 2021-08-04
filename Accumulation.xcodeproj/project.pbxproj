@@ -58,6 +58,7 @@
 		EC663C9C2682051700912665 /* ErrorCtrlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC663C9B2682051700912665 /* ErrorCtrlr.swift */; };
 		EC69455226BA95C30021423D /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69455126BA95C30021423D /* GrowingTextView.swift */; };
 		EC69455426BA96990021423D /* NSDictionary+Unicode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69455326BA96990021423D /* NSDictionary+Unicode.swift */; };
+		EC69455626BAB37F0021423D /* CPDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69455526BAB37F0021423D /* CPDateFormatter.swift */; };
 		EC7A5F6F266512D200E4A7A7 /* CPSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A5F6E266512D200E4A7A7 /* CPSegmentedControl.swift */; };
 		ECA5CC01266F911D00F9C2BA /* PushInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CBFA266F911D00F9C2BA /* PushInteractiveTransition.swift */; };
 		ECA5CC02266F911D00F9C2BA /* OptionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CBFB266F911D00F9C2BA /* OptionsAnimator.swift */; };
@@ -87,7 +88,6 @@
 		ECC0E85B2661BA1B00C28C3C /* String+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E85A2661BA1B00C28C3C /* String+Regex.swift */; };
 		ECC0E8682663944000C28C3C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E8672663944000C28C3C /* PlaceholderTextView.swift */; };
 		ECC0E8922665087100C28C3C /* InsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E8912665087000C28C3C /* InsetsTextField.swift */; };
-		ECD601C82699EF7100403F25 /* CPDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7876026903D1B00EF254E /* CPDateFormatter.swift */; };
 		ECDE8FE626B2E4DF0042601E /* InsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8FE526B2E4DF0042601E /* InsetsLabel.swift */; };
 		ECEB8FF7267C18790047D140 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = ECEB8FF6267C18790047D140 /* Toast */; };
 		ECEB8FFA267F85270047D140 /* ControlProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8FF9267F85270047D140 /* ControlProperty.swift */; };
@@ -143,6 +143,7 @@
 		EC663C9B2682051700912665 /* ErrorCtrlr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCtrlr.swift; sourceTree = "<group>"; };
 		EC69455126BA95C30021423D /* GrowingTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		EC69455326BA96990021423D /* NSDictionary+Unicode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Unicode.swift"; sourceTree = "<group>"; };
+		EC69455526BAB37F0021423D /* CPDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPDateFormatter.swift; sourceTree = "<group>"; };
 		EC7A5F6E266512D200E4A7A7 /* CPSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSegmentedControl.swift; sourceTree = "<group>"; };
 		ECA5CBF9266F911D00F9C2BA /* OptionsPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsPresentation.swift; sourceTree = "<group>"; };
 		ECA5CBFA266F911D00F9C2BA /* PushInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushInteractiveTransition.swift; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		ECA5CC2A267196E300F9C2BA /* RollLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollLoadingView.swift; sourceTree = "<group>"; };
 		ECA5CC2C2671972400F9C2BA /* GradientLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoadingView.swift; sourceTree = "<group>"; };
 		ECB418C226899B3000CAFCD6 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
-		ECB7876026903D1B00EF254E /* CPDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CPDateFormatter.swift; path = ../../../Cards/Cards/Service/CPDateFormatter.swift; sourceTree = "<group>"; };
 		ECC0E836265EA2E000C28C3C /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		ECC0E838265F1C3D00C28C3C /* ImageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelView.swift; sourceTree = "<group>"; };
 		ECC0E84E2661B93000C28C3C /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 		ECC0E81F265D3F6B00C28C3C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				ECB7876026903D1B00EF254E /* CPDateFormatter.swift */,
+				EC69455526BAB37F0021423D /* CPDateFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -565,7 +565,6 @@
 				EC663C9C2682051700912665 /* ErrorCtrlr.swift in Sources */,
 				3516130D246D35CB0078CE74 /* AlertTransition.swift in Sources */,
 				ECA5CC04266F911D00F9C2BA /* OptionsPresentation.swift in Sources */,
-				ECD601C82699EF7100403F25 /* CPDateFormatter.swift in Sources */,
 				ECA5CC03266F911D00F9C2BA /* OptionsTransition.swift in Sources */,
 				ECA5CC05266F911D00F9C2BA /* PushStyleAnimator.swift in Sources */,
 				ECA5CC0E266F9DEF00F9C2BA /* UIImageView+Ext.swift in Sources */,
@@ -581,6 +580,7 @@
 				ECC0E8522661B94200C28C3C /* DefaultTableCell.swift in Sources */,
 				ECC0E837265EA2E000C28C3C /* UITableView+Ext.swift in Sources */,
 				ECC0E8592661B9D000C28C3C /* InputFormView.swift in Sources */,
+				EC69455626BAB37F0021423D /* CPDateFormatter.swift in Sources */,
 				351612FD246D35710078CE74 /* UIButton+Ext.swift in Sources */,
 				35161337246D3F990078CE74 /* UIButton+Style.swift in Sources */,
 			);

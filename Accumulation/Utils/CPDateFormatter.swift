@@ -7,51 +7,36 @@
 //
 
 import Foundation
-import ObjectMapper
 
-enum CPDateFormatterStyle: String {
+public enum CPDateFormatterStyle: String {
     
     /// yyyy-MM-dd HH:mm:ss 例如：2016-01-01 21:01:01
-    case style1 = "yyyy-MM-dd HH:mm:ss"
+    case dateTime = "yyyy-MM-dd HH:mm:ss"
     
     /// yyyy-MM-dd 例如：2016-01-01
-    case style2 = "yyyy-MM-dd"
+    case date = "yyyy-MM-dd"
     
     /// HH:mm:ss 例如：21:00:00
-    case style3 = "HH:mm:ss"
-    
-    /// yyyy年M月d日 HH:mm:ss EEEE 例如：2016年1月1日 21:01:01 星期天
-    case style4 = "yyyy年M月d日 HH:mm:ss EEEE"
+    case time = "HH:mm:ss"
     
     /// yyyy年M月d日
-    case style5 = "yyyy年M月d日"
+    case chineseDate = "yyyy年M月d日"
+    
+    /// yyyy年M月d日 HH:mm:ss EEEE 例如：2016年1月1日 21:01:01 星期天
+    case chineseDateTimeAndWeek = "yyyy年M月d日 HH:mm:ss EEEE"
     
     /// yyyyMMddHHmmss 例如：20160101210101
-    case style6 = "yyyyMMddHHmmss"
+    case dateTimeNoSpace = "yyyyMMddHHmmss"
     
     /// yyyyMMddHHmmssSSS 例如：20160101210101000
-    case style7 = "yyyyMMddHHmmssSSS"
-    
-    /// HH:mm 例如：21:00
-    case style8 = "HH:mm"
-    
-    /// MM-dd 例如：10:01
-    case style9 = "MM-dd"
-    
-    /// yyyy-MM-dd HH:mm 例如：2016-01-01 21:01
-    case style10 = "yyyy-MM-dd HH:mm"
+    case dateTimeMSNoSpace = "yyyyMMddHHmmssSSS"
 }
 
-final class CPDateFormatter: NSObject {
+public final class CPDateFormatter: NSObject {
     
     /// Date, Style -> String
     static func string(from date: Date, style: CPDateFormatterStyle) -> String {
         return string(from: date, format: style.rawValue)
-    }
-    
-    /// String, Style -> Date
-    static func date(from string: String, style: CPDateFormatterStyle) -> Date? {
-        return date(from: string, format: style.rawValue)
     }
     
     /// Date, Format -> String
@@ -59,6 +44,11 @@ final class CPDateFormatter: NSObject {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: date)
+    }
+    
+    /// String, Style -> Date
+    static func date(from string: String, style: CPDateFormatterStyle) -> Date? {
+        return date(from: string, format: style.rawValue)
     }
     
     /// String, Format -> Date
@@ -70,29 +60,25 @@ final class CPDateFormatter: NSObject {
 }
 
 extension String {
-    func toDate(style: CPDateFormatterStyle) -> Date? {
+    /// String, Style -> Date
+    public func toDate(style: CPDateFormatterStyle) -> Date? {
         return CPDateFormatter.date(from: self, style: style)
     }
     
-    func toDate(format: String) -> Date? {
+    /// String, Format -> Date
+    public func toDate(format: String) -> Date? {
         return CPDateFormatter.date(from: self, format: format)
     }
 }
 
 extension Date {
-    func toString(style: CPDateFormatterStyle) -> String {
+    /// Date, Style -> String
+    public func toString(style: CPDateFormatterStyle) -> String {
         return CPDateFormatter.string(from: self, style: style)
     }
     
-    func toString(format: String) -> String {
+    /// Date, Format -> String
+    public func toString(format: String) -> String {
         return CPDateFormatter.string(from: self, format: format)
-    }
-}
-
-class CPDateFormatTransform: DateFormatterTransform {
-    init(style: CPDateFormatterStyle) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = style.rawValue
-        super.init(dateFormatter: formatter)
     }
 }
