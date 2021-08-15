@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// 格式校验
 extension String {
     public enum ValidityType {
         /// 手机
@@ -44,7 +45,7 @@ extension String {
             }
         }
     }
-    
+
     public func isValid(_ type: ValidityType) -> Bool {
         return NSPredicate(format: "SELF MATCHES %@", type.regex).evaluate(with: self)
     }

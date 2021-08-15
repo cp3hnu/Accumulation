@@ -9,6 +9,7 @@
 import UIKit
 import Bricking
 
+/// 图片 + 文字的 vertical button
 public final class VerticalButton: UIButton {
     public let imgView = UIImageView()
     public let label = UILabel()

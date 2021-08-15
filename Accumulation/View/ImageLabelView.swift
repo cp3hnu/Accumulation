@@ -9,6 +9,7 @@
 import UIKit
 import Bricking
 
+/// 带有图片和文字的 view，支持横排和竖排
 public final class ImageLabelView: UIView {
     
     public enum Direction {
@@ -55,18 +56,25 @@ public final class ImageLabelView: UIView {
                 inset.bottom
             )
         case .Vertical(let offset, let inset):
+            textLabel.textAlignment = .center
             self.layout(
                 inset.top,
-                |-(>=inset.left)-imageView-(>=inset.right)-|,
+                imageView.centerHorizontally(),
                 offset,
-                |-(>=inset.left)-textLabel-(>=inset.right)-|,
+                |-inset.left-textLabel-inset.right-|,
                 inset.bottom
             )
-            alignVertically(imageView, textLabel)
+            textLabel.laWidth >= imageView.laWidth
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setImage(_ image: UIImage, size: CGSize = CGSize(width: 82, height: 82)) {
+        imageView.image = image
+        imageView.widthConstraint?.constant = size.width
+        imageView.heightConstraint?.constant = size.height
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/// 验证码 UIButton
 public final class VerifyCodeButton: UIButton {
     struct Style {
         static var borderColor: UIColor = UIColor.mainColor

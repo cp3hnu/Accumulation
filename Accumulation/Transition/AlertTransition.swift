@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias AlertStyleCtrlr = AlertStyleViewController & UIViewController
+
 public final class AlertTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     var isDismiss = false
@@ -23,15 +25,15 @@ public final class AlertTransition: NSObject, UIViewControllerAnimatedTransition
         let toView: UIView = toVC.view
         let containerView = transitionContext.containerView
         let finalFrame = transitionContext.finalFrame(for: toVC)
-        var alertCtrlr: AlertCtrlr?
+        var alertCtrlr: AlertStyleCtrlr?
         
         let duration = transitionDuration(using: transitionContext)
         if !isDismiss {
             toView.frame = finalFrame
             containerView.addSubview(toView)
-            alertCtrlr = toVC as? AlertCtrlr
+            alertCtrlr = toVC as? AlertStyleCtrlr
         } else {
-            alertCtrlr = fromVC as? AlertCtrlr
+            alertCtrlr = fromVC as? AlertStyleCtrlr
         }
         
         if let alert = alertCtrlr {

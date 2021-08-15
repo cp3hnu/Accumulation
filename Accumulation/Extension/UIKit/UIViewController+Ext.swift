@@ -19,7 +19,7 @@ public struct SheetItem {
     }
 }
 
-// 弹出简单的 Alert
+// 弹出简单的 Alert & Sheet
 extension UIViewController {
     public func popupAlert(title: String?, message: String?, canCancel: Bool = true, cancelTitle: String = "取消", cancelAction: ((UIAlertAction) -> Void)? = nil, isDestructive: Bool = false, preferredTitle: String = "确定", preferredAction: ((UIAlertAction) -> Void)? = nil) {
         

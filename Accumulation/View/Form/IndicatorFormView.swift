@@ -8,11 +8,17 @@
 
 import UIKit
 import Bricking
+import RxSwift
+import RxCocoa
 
 public enum IndicatorFormStyle {
+    /// 默认样式，左边 `tittle`，右边 `value`，`value` 右对齐
     case `default`
+    /// 左边 `tittle`，然后接着 `value`，`value` 左对齐
     case valueAlignLeft(offset: CGFloat)
+    /// 左边 `tittle`，右边 `image`，使用场景 `设置头像`
     case image(imageSize: CGFloat, imageSpace: CGFloat)
+    /// 左边 `image`和然后接着 `text` 和 `detailText`
     case imageSubtitle(imageSize: CGFloat, imageSpace: CGFloat)
 }
 
@@ -40,6 +46,7 @@ public final class IndicatorFormView: UIView {
     public let separator = UIView.separator()
     public let indicator = UIImageView()
     private let style: IndicatorFormStyle
+    fileprivate let valueSubject = BehaviorSubject<String?>(value: nil)
     
     // In default and valueAlignLeft style
     public var value: String? {
@@ -49,6 +56,7 @@ public final class IndicatorFormView: UIView {
         set {
             detailTextLabel.text = newValue
             placeholderLabel.isHidden = newValue != nil
+            valueSubject.onNext(newValue)
         }
     }
     
@@ -81,18 +89,8 @@ public final class IndicatorFormView: UIView {
             imageView.image = newValue
         }
     }
-    
-    // In default and valueAlignLeft style
-    public convenience init(title: String, placeholder: String? = nil, offset: CGFloat? = nil, value: String? = nil) {
-        let style: IndicatorFormStyle = offset != nil ? .valueAlignLeft(offset: offset!) : .default
-        self.init(style: style)
-        
-        textLabel.text = title
-        detailTextLabel.text = value
-        placeholderLabel.text = placeholder
-        placeholderLabel.isHidden = value != nil
-    }
 
+    // MARK: - Init
     public init(style: IndicatorFormStyle) {
         self.style = style
         super.init(frame: CGRect.zero)
@@ -136,6 +134,17 @@ public final class IndicatorFormView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // In default and valueAlignLeft style
+    public convenience init(title: String, placeholder: String? = nil, offset: CGFloat? = nil, value: String? = nil) {
+        let style: IndicatorFormStyle = offset != nil ? .valueAlignLeft(offset: offset!) : .default
+        self.init(style: style)
+        
+        textLabel.text = title
+        detailTextLabel.text = value
+        placeholderLabel.text = placeholder
+        placeholderLabel.isHidden = value != nil
+    }
+    
     public override var intrinsicContentSize: CGSize {
         var height: CGFloat = 44
         switch style {
@@ -150,6 +159,7 @@ public final class IndicatorFormView: UIView {
     }
 }
 
+// MARK: - Constraint
 private extension IndicatorFormView {
     func setConstaintsInDefaultStyle() {
         imageView.isHidden = true
@@ -162,7 +172,6 @@ private extension IndicatorFormView {
         imageView.isHidden = true
         detailTextLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh - 1, for: .horizontal)
         alignHorizontally(|-15--textLabel--""--detailTextLabel.leading(offset)--15--indicator.centerVertically()--15-|)
-        
         alignLeadings(detailTextLabel, placeholderLabel.centerVertically())
     }
     
@@ -184,4 +193,13 @@ private extension IndicatorFormView {
         |-15-imageView.fillVertically(space).size(size)-textLabel-15-indicator.centerVertically()-15-|
         alignHorizontalEnds(textLabel, detailTextLabel)
     }
+}
+
+// MARK: - RxSwift
+extension Reactive where Base: IndicatorFormView {
+    public var value: Observable<String?> {
+        return self.base.valueSubject.asObservable()
+    }
+    
+    
 }

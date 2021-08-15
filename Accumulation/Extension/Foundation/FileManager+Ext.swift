@@ -9,12 +9,16 @@
 import Foundation
 
 extension FileManager {
-    public var documentUrl: URL {
+    public var documentDirectory: URL {
         return urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
-    public var appSupportUrl: URL {
+    public var appSupportDirectory: URL {
         return urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+    }
+    
+    public var cachesDirectory: URL {
+        return urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
     
     public func fileExists(atUrl url: URL) -> Bool {

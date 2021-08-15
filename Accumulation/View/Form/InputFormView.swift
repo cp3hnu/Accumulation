@@ -8,6 +8,8 @@
 
 import UIKit
 import Bricking
+import RxSwift
+import RxCocoa
 
 public final class InputFormView: UIView {
     public let titleLabel = UILabel().fontSize(14).textColor(UIColor.Text.strong)
@@ -165,5 +167,12 @@ extension InputFormView: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - RxSwift
+extension Reactive where Base: InputFormView {
+    public var value: ControlProperty<String?> {
+        return self.base.textField.rx.text
     }
 }

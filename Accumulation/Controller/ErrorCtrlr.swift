@@ -40,6 +40,7 @@ public enum EmptyError {
     }
 }
 
+/// 显示空数据或者网络请求错误的 UIViewController
 final class ErrorCtrlr: UIViewController {
     
     private let error: EmptyError

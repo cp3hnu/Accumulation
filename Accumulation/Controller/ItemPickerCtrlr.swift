@@ -9,6 +9,7 @@
 import UIKit
 import Bricking
 
+/// 单行数据选择器，用 table view 实现
 public final class ItemPickerCtrlr: UIViewController {
     
     public var completion: ((Int, DataPickerItem) -> Void)?

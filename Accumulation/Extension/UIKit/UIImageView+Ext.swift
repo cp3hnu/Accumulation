@@ -9,13 +9,8 @@
 import Foundation
 import UIKit
 
+/// 级联
 extension UIImageView {
-    @discardableResult
-    public func tintColor(_ color: UIColor) -> Self {
-        self.tintColor = color
-        return self
-    }
-    
     @discardableResult
     public func contentMode(_ mode: ContentMode) -> Self {
         self.contentMode = mode

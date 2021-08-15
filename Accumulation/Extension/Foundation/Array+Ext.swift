@@ -20,4 +20,14 @@ extension Array {
             self[idx][keyPath: property] = value
         }
     }
+    
+    /// 删除多个，使用时要保证 indexes 不越界，不然就会 crash
+    func remove(at indexes: [Int]) -> Array {
+        var result = self
+        let sortedIndexes = indexes.sorted(by: >)
+        for idx in sortedIndexes {
+            result.remove(at: idx)
+        }
+        return result
+    }
 }

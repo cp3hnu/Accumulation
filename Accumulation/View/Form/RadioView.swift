@@ -10,10 +10,6 @@ import UIKit
 import Bricking
 
 public final class RadioView: UIView {
-    
-    private let kBaseTag = 100
-    private var options: [String]
-    private var _selectedIndex = 0
     public var selectedIndex: Int {
         get {
             return _selectedIndex
@@ -28,6 +24,10 @@ public final class RadioView: UIView {
         }
     }
     public var selectedAt: ((Int) -> Void)?
+    
+    private let kBaseTag = 100
+    private var options: [String]
+    private var _selectedIndex = 0
     
     public init(options: [String]) {
         self.options = options

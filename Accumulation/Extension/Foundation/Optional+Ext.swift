@@ -22,6 +22,7 @@ extension Optional where Wrapped: Equatable  {
     }
 }
 
+/// String nil 转空字符串
 extension Optional where Wrapped == String {
     public var nilToEmpty: String {
         if self == Optional.none {

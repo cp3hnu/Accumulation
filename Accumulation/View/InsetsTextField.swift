@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+/// 带 insets 的 UITextField
 public final class InsetsTextField: UITextField {
 
     private let insets: UIEdgeInsets

@@ -16,6 +16,7 @@ extension NSAttributedString {
     }
 }
 
+// MARK: - NSAttributedString 级联
 extension NSAttributedString {
     // 一般方法
     @discardableResult

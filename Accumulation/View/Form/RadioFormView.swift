@@ -11,7 +11,13 @@ import UIKit
 import Bricking
 
 public class RadioFormView: UIView {
-    public let titleLabel = UILabel().font(UIFont.contentFont).textColor(UIColor.Text.strong)
+    public struct Style {
+        public static var titleFont = 16.font
+        public static var titleColor = UIColor.compLabel
+        public static var backgroundColor = UIColor.compTertiarySystemBackground
+    }
+    
+    public let titleLabel = UILabel().font(Style.titleFont).textColor(Style.titleColor)
     public let separator = UIView.separator()
     public var radioView: RadioView!
     public var selectedAt: ((Int) -> Void)?
@@ -29,7 +35,7 @@ public class RadioFormView: UIView {
     /// valueLabel默认右对齐，valueOffset != nil时，valueLabel左对齐
     public init(title: String, options: [String], offset: CGFloat? = nil) {
         super.init(frame: CGRect.zero)
-        backgroundColor = UIColor.white
+        backgroundColor = Style.backgroundColor
         
         titleLabel.text = title
         let radioView = RadioView(options: options)

@@ -9,6 +9,7 @@
 import UIKit
 import Bricking
 
+/// 单行或多行数据选择器
 public protocol DataPickerItem {
     var displayName: String { get }
     var nextItems: [DataPickerItem]? { get }

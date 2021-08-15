@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// 带 insets 的 UILabel
 public final class InsetsLabel: UILabel {
     private let insets: UIEdgeInsets
     

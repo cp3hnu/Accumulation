@@ -37,6 +37,12 @@ extension UIView {
         self.layer.masksToBounds = true
         return self
     }
+    
+    @discardableResult
+    public func tintColor(_ color: UIColor) -> Self {
+        self.tintColor = color
+        return self
+    }
 }
 
 // MARK: - Separator

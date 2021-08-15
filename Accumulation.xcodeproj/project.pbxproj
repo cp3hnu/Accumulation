@@ -69,7 +69,6 @@
 		ECA5CC07266F911D00F9C2BA /* BlurBGAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CBFE266F911D00F9C2BA /* BlurBGAnimator.swift */; };
 		ECA5CC08266F911D00F9C2BA /* BlurBGPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC00266F911D00F9C2BA /* BlurBGPresentation.swift */; };
 		ECA5CC0E266F9DEF00F9C2BA /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC0D266F9DEF00F9C2BA /* UIImageView+Ext.swift */; };
-		ECA5CC1026703D8100F9C2BA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC0F26703D8100F9C2BA /* GridView.swift */; };
 		ECA5CC1526703DE200F9C2BA /* RadioFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC1326703DE200F9C2BA /* RadioFormView.swift */; };
 		ECA5CC1626703DE200F9C2BA /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC1426703DE200F9C2BA /* RadioView.swift */; };
 		ECA5CC1D26703E8B00F9C2BA /* DatePickerCtrlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC1B26703E8B00F9C2BA /* DatePickerCtrlr.swift */; };
@@ -154,7 +153,6 @@
 		ECA5CBFF266F911D00F9C2BA /* PushStyleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStyleTransition.swift; sourceTree = "<group>"; };
 		ECA5CC00266F911D00F9C2BA /* BlurBGPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBGPresentation.swift; sourceTree = "<group>"; };
 		ECA5CC0D266F9DEF00F9C2BA /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
-		ECA5CC0F26703D8100F9C2BA /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		ECA5CC1326703DE200F9C2BA /* RadioFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioFormView.swift; sourceTree = "<group>"; };
 		ECA5CC1426703DE200F9C2BA /* RadioView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		ECA5CC1B26703E8B00F9C2BA /* DatePickerCtrlr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCtrlr.swift; sourceTree = "<group>"; };
@@ -243,24 +241,16 @@
 		351612DD246D323D0078CE74 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC69455826BCBCD60021423D /* Cell */,
+				EC69455726BCBCBC0021423D /* Form */,
 				ECA5CC29267196CC00F9C2BA /* Loading */,
 				ECA5CC26267191E200F9C2BA /* BannerView.swift */,
-				ECA5CC1326703DE200F9C2BA /* RadioFormView.swift */,
-				ECA5CC1426703DE200F9C2BA /* RadioView.swift */,
 				EC7A5F6E266512D200E4A7A7 /* CPSegmentedControl.swift */,
 				ECC0E8672663944000C28C3C /* PlaceholderTextView.swift */,
 				ECC0E8542661B95800C28C3C /* VerifyCodeButton.swift */,
-				ECC0E8502661B94200C28C3C /* DefaultTableCell.swift */,
-				ECC0E8512661B94200C28C3C /* SubtitleTableCell.swift */,
-				35D21F7A24B9FB0C0066F2A7 /* Value1TableCell.swift */,
 				ECC0E84E2661B93000C28C3C /* VerticalButton.swift */,
-				35161333246D3C520078CE74 /* IndicatorFormView.swift */,
-				35D21F6A24B598F70066F2A7 /* InfoFormView.swift */,
-				35161332246D3C520078CE74 /* SwitchFormView.swift */,
-				ECA5CC0F26703D8100F9C2BA /* GridView.swift */,
 				3594F38D24B41E7C0037C8B9 /* PickView.swift */,
 				ECC0E838265F1C3D00C28C3C /* ImageLabelView.swift */,
-				ECC0E8582661B9D000C28C3C /* InputFormView.swift */,
 				ECC0E8912665087000C28C3C /* InsetsTextField.swift */,
 				ECDE8FE526B2E4DF0042601E /* InsetsLabel.swift */,
 			);
@@ -345,6 +335,29 @@
 				EC69455126BA95C30021423D /* GrowingTextView.swift */,
 			);
 			path = GrowingTextView;
+			sourceTree = "<group>";
+		};
+		EC69455726BCBCBC0021423D /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				ECA5CC1426703DE200F9C2BA /* RadioView.swift */,
+				ECA5CC1326703DE200F9C2BA /* RadioFormView.swift */,
+				35D21F6A24B598F70066F2A7 /* InfoFormView.swift */,
+				35161333246D3C520078CE74 /* IndicatorFormView.swift */,
+				35161332246D3C520078CE74 /* SwitchFormView.swift */,
+				ECC0E8582661B9D000C28C3C /* InputFormView.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		EC69455826BCBCD60021423D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ECC0E8502661B94200C28C3C /* DefaultTableCell.swift */,
+				ECC0E8512661B94200C28C3C /* SubtitleTableCell.swift */,
+				35D21F7A24B9FB0C0066F2A7 /* Value1TableCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		EC7A5F742666175900E4A7A7 /* Foundation */ = {
@@ -521,7 +534,6 @@
 				ECA5CC2D2671972400F9C2BA /* GradientLoadingView.swift in Sources */,
 				3594F38C24B41BD90037C8B9 /* LoadingView.swift in Sources */,
 				35D21F6D24B59FB20066F2A7 /* Colours.swift in Sources */,
-				ECA5CC1026703D8100F9C2BA /* GridView.swift in Sources */,
 				ECEB8FFA267F85270047D140 /* ControlProperty.swift in Sources */,
 				ECC0E84F2661B93000C28C3C /* VerticalButton.swift in Sources */,
 				ECC0E85B2661BA1B00C28C3C /* String+Regex.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import Bricking
 import RxSwift
 
+/// 带 placeholder 的 UITextView
 public final class PlaceholderTextView: UITextView {
     
     private let disposeBag = DisposeBag()

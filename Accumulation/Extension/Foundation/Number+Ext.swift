@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// MARK: - 数据格式直接的转换
 extension Double {
     public var twoDecimalPlaces: String { String(format: "%.2f", self) }
     public var cf: CGFloat { CGFloat(self) }

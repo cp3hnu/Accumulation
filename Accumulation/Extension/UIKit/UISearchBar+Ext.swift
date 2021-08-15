@@ -19,6 +19,7 @@ extension UISearchBar {
         }
     }
     
+    // 设置 UISearchBar 里的 textField 的字体
     public func setTextFieldFont(_ font: UIFont) {
         if #available(iOS 13.0, *) {
             self.searchTextField.font = font

@@ -10,7 +10,12 @@ import UIKit
 import Bricking
 import RxSwift
 import RxCocoa
+ 
+public protocol AlertStyleViewController {
+    var wrappedView: UIView { get }
+}
 
+/// 自定义 UIAlertView
 public protocol AlertViewContent {
     var returnValue: Any? { get }
     var isPreferredEnabled: Observable<Bool> { get }
@@ -47,8 +52,7 @@ public enum AlertStyle {
     case custom(AlertContentView)
 }
 
-public final class AlertCtrlr: UIViewController {
-    
+public final class AlertCtrlr: UIViewController, AlertStyleViewController {
     public struct Style {
         public static var titleFont = 20.boldFont
         public static var titleColor = UIColor.compLabel
@@ -89,6 +93,7 @@ public final class AlertCtrlr: UIViewController {
     private let cancelTitle: String?
     private let preferTitle: String?
     
+    // MARK: - Init
     public init(title: String?, style: AlertStyle, cancelTitle: String? = nil, preferTitle: String?) {
         self.titleText = title
         self.style = style
@@ -128,6 +133,7 @@ public final class AlertCtrlr: UIViewController {
     }
 }
 
+// MARK: - Setup
 private extension AlertCtrlr {
     func setupView() {
         view.asv(wrappedView)

@@ -8,6 +8,8 @@
 
 import UIKit
 import Bricking
+import RxSwift
+import RxCocoa
 
 public final class SwitchFormView: UIView {
     public struct Style {
@@ -42,3 +44,15 @@ public final class SwitchFormView: UIView {
         return CGSize(width: UIView.noIntrinsicMetric, height: 44)
     }
 }
+
+// MARK: - RxSwift
+extension Reactive where Base: SwitchFormView {
+    public var isOn: ControlProperty<Bool> {
+        return self.base.switchCtrl.rx.isOn
+    }
+    
+    public var value: ControlProperty<Bool> {
+        return self.base.switchCtrl.rx.value
+    }
+}
+
