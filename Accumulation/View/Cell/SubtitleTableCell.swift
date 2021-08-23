@@ -30,6 +30,7 @@ public final class SubtitleTableCell: UITableViewCell {
     public let titleLabel = UILabel().font(Style.titleFont).textColor(Style.titleColor)
     public let subtitleLabel = UILabel().font(Style.subtitleFont).textColor(Style.subtitleColor)
     public let indicator = UIImageView()
+    public let separator = UIView.separator()
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,7 +47,8 @@ public final class SubtitleTableCell: UITableViewCell {
             displayImgView,
             titleLabel,
             subtitleLabel,
-            indicator
+            indicator,
+            separator
         )
         
         layout(
@@ -59,6 +61,7 @@ public final class SubtitleTableCell: UITableViewCell {
         
         |-15-displayImgView.size(30).centerVertically()-10-titleLabel-8-indicator-15-|
         alignHorizontalEnds(titleLabel, subtitleLabel)
+        |-15-separator.height(0.5).bottom(0)-0-|
     }
     
     required init?(coder aDecoder: NSCoder) {

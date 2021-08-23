@@ -29,6 +29,7 @@ public final class DefaultTableCell: UITableViewCell {
     public let displayImgView = UIImageView()
     public let titleLabel = UILabel().font(Style.titleFont).textColor(Style.titleColor)
     public let indicator = UIImageView()
+    public let separator = UIView.separator()
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,15 +45,18 @@ public final class DefaultTableCell: UITableViewCell {
         asv(
             displayImgView,
             titleLabel,
-            indicator
+            indicator,
+            separator
         )
         
         if reuseIdentifier == DefaultTableCell.defaultReuseId {
             displayImgView.isHidden = true
             |-15-titleLabel.centerVertically()--(>=10)-indicator-15-|
         } else {
-           |-15-displayImgView.centerVertically().size(30)-10-titleLabel.centerVertically()-(>=10)-indicator-15-|
+           |-15-displayImgView.size(30)-10-titleLabel.centerVertically()-(>=10)-indicator-15-|
         }
+        alignHorizontally(titleLabel, displayImgView, indicator)
+        |-15-separator.height(0.5).bottom(0)-0-|
     }
     
     required init?(coder aDecoder: NSCoder) {

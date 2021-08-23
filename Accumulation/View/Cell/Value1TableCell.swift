@@ -51,7 +51,7 @@ public final class Value1TableCell: UITableViewCell {
             separator
         )
         alignHorizontally(|-15-titleLabel.centerVertically()-(>=8)-detailLabel-8-indicator-15-|)
-        |-15-separator.height(0.5).bottom(0)|
+        |-15-separator.height(0.5).bottom(0)-0-|
     }
     
     required init?(coder aDecoder: NSCoder) {
