@@ -12,17 +12,33 @@ import RxCocoa
 
 /// 验证码 UIButton
 public final class VerifyCodeButton: UIButton {
-    struct Style {
-        static var borderColor: UIColor = UIColor.mainColor
-        static var borderDisableColor: UIColor = 0x999999.hexColor
+    public struct Style {
+        public static var normalColor: UIColor = UIColor.mainColor
+        public static var disabledColor: UIColor = UIColor.mainColor.alpha(0.3)
+        public static var font: UIFont = 14.font
+        // 是否带边框
+        public static var borderWidth: CGFloat = 0
+        public static var borderColor: UIColor = UIColor.mainColor
+        public static var disabledBorderColor: UIColor = UIColor.mainColor.alpha(0.3)
+    }
+    
+    public var normalColor = Style.normalColor {
+        didSet {
+            setTitleColor(normalColor, for: .normal)
+            
+        }
+    }
+    public var disabledColor = Style.disabledColor {
+        didSet {
+            setTitleColor(Style.disabledColor, for: .disabled)
+        }
     }
     
     // 是否有边框
-    public var hasBorder = false
-    
+    public var borderWidth = Style.borderWidth
     // 边框颜色
-    public var borderColor: UIColor = Style.borderColor
-    public var borderDisableColor: UIColor = Style.borderDisableColor
+    public var borderColor = Style.borderColor
+    public var disabledBorderColor = Style.disabledBorderColor
     
     // 按钮外部使能条件，比如要输入手机号码
     public var isExternalEnabled = false {
@@ -35,8 +51,8 @@ public final class VerifyCodeButton: UIButton {
     
     public override var isEnabled: Bool {
         didSet {
-            if (hasBorder) {
-                self.layer.borderColor = isEnabled ? borderColor.cgColor : borderDisableColor.cgColor
+            if (borderWidth > 0) {
+                self.layer.borderColor = isEnabled ? borderColor.cgColor : disabledBorderColor.cgColor
             }
         }
     }
@@ -61,11 +77,13 @@ public final class VerifyCodeButton: UIButton {
         totalSeconds = seconds
         super.init(frame: CGRect.zero)
         setTitle("发送验证码", for: .normal)
-        setTitleColor(UIColor.mainColor, for: .normal)
-        setTitleColor(UIColor.mainColor.alpha(0.3), for: .disabled)
-        titleLabel?.font = 14.font
+        setTitleColor(Style.normalColor, for: .normal)
+        setTitleColor(Style.disabledColor, for: .disabled)
+        titleLabel?.font = Style.font
+        if Style.borderWidth > 0 {
+            self.layer.borderWidth = Style.borderWidth
+        }
         isEnabled = false
-        
         notificationObserver()
     }
     

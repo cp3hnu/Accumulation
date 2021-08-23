@@ -197,9 +197,11 @@ private extension IndicatorFormView {
 
 // MARK: - RxSwift
 extension Reactive where Base: IndicatorFormView {
-    public var value: Observable<String?> {
-        return self.base.valueSubject.asObservable()
+    public var value: ControlProperty<String?> {
+        let observable = self.base.valueSubject.asObservable()
+        let binder = Binder<String?>(self.base) { formView, value in
+            formView.value = value
+        }
+        return ControlProperty<String?>.init(values: observable, valueSink: binder)
     }
-    
-    
 }

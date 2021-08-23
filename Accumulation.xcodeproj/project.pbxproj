@@ -89,7 +89,7 @@
 		ECC0E8922665087100C28C3C /* InsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E8912665087000C28C3C /* InsetsTextField.swift */; };
 		ECDE8FE626B2E4DF0042601E /* InsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8FE526B2E4DF0042601E /* InsetsLabel.swift */; };
 		ECEB8FF7267C18790047D140 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = ECEB8FF6267C18790047D140 /* Toast */; };
-		ECEB8FFA267F85270047D140 /* ControlProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8FF9267F85270047D140 /* ControlProperty.swift */; };
+		ECEB8FFA267F85270047D140 /* RxSwift+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8FF9267F85270047D140 /* RxSwift+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,7 +173,7 @@
 		ECC0E8672663944000C28C3C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		ECC0E8912665087000C28C3C /* InsetsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsTextField.swift; sourceTree = "<group>"; };
 		ECDE8FE526B2E4DF0042601E /* InsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsLabel.swift; sourceTree = "<group>"; };
-		ECEB8FF9267F85270047D140 /* ControlProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlProperty.swift; sourceTree = "<group>"; };
+		ECEB8FF9267F85270047D140 /* RxSwift+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,7 +419,7 @@
 		ECEB8FF8267F84D90047D140 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				ECEB8FF9267F85270047D140 /* ControlProperty.swift */,
+				ECEB8FF9267F85270047D140 /* RxSwift+Ext.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 				ECA5CC2D2671972400F9C2BA /* GradientLoadingView.swift in Sources */,
 				3594F38C24B41BD90037C8B9 /* LoadingView.swift in Sources */,
 				35D21F6D24B59FB20066F2A7 /* Colours.swift in Sources */,
-				ECEB8FFA267F85270047D140 /* ControlProperty.swift in Sources */,
+				ECEB8FFA267F85270047D140 /* RxSwift+Ext.swift in Sources */,
 				ECC0E84F2661B93000C28C3C /* VerticalButton.swift in Sources */,
 				ECC0E85B2661BA1B00C28C3C /* String+Regex.swift in Sources */,
 				351612F8246D35710078CE74 /* FileManager+Ext.swift in Sources */,

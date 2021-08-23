@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 /// 自定义 Segmented Control
 public final class CPSegmentedControl: UIControl {
@@ -42,14 +44,15 @@ public final class CPSegmentedControl: UIControl {
     }
     
     /// segment item 切换回调，参数是 segment index
-    /// 可以使用这个回调，也可以使用 `UIControl`的 `valueChanged`事件
+    /// 可以使用这个回调，也可以使用 `self.rx.value` or `self.rx.selectedSegmentIndex`
     public var segmentSelected: ((Int) -> Void)?
     
-    private var _segmentIndex: Int = 0
+    private var _selectedSegmentIndex: Int = 0
     /// 当前选中的 segment item index
-    public var segmentIndex: Int {
+    
+    public var selectedSegmentIndex: Int {
         get {
-           return _segmentIndex
+           return _selectedSegmentIndex
         }
         set(index) {
             selectingSegment(atIndex: index)
@@ -181,7 +184,7 @@ public final class CPSegmentedControl: UIControl {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        let selectedButton = buttons[_segmentIndex]
+        let selectedButton = buttons[_selectedSegmentIndex]
         let width = frame.width
         let height = frame.height
         let count = CGFloat(buttons.count)
@@ -224,15 +227,15 @@ public final class CPSegmentedControl: UIControl {
 public extension CPSegmentedControl {
     /// 切换到某 segment item
     /// - Parameters:
-    ///   - index: index 从0开始
+    ///   - index: index 从 0 开始
     ///   - animated: 是否动画，默认没有动画
     func selectingSegment(atIndex index: Int, animated: Bool = false) {
-        guard index != _segmentIndex else { return }
+        guard index != _selectedSegmentIndex else { return }
         
-        _segmentIndex = index
+        _selectedSegmentIndex = index
         
         buttons.forEach { $0.isSelected = false }
-        let selectedButton = buttons[_segmentIndex]
+        let selectedButton = buttons[_selectedSegmentIndex]
         selectedButton.isSelected = true
         
         func moveLine() {
@@ -256,10 +259,31 @@ public extension CPSegmentedControl {
 private extension CPSegmentedControl {
     @objc func tap(_ button: UIButton) {
         let idx = button.tag - kButtonBaseTag
-        guard idx != _segmentIndex else { return }
+        guard idx != _selectedSegmentIndex else { return }
         
         selectingSegment(atIndex: idx, animated: true)
-        segmentSelected?(_segmentIndex)
+        segmentSelected?(_selectedSegmentIndex)
         self.sendActions(for: UIControl.Event.valueChanged)
+    }
+}
+
+// MARK: - RxSwift
+extension Reactive where Base: CPSegmentedControl {
+    /// Reactive wrapper for `selectedSegmentIndex` property.
+    public var selectedSegmentIndex: ControlProperty<Int> {
+        value
+    }
+    
+    /// Reactive wrapper for `selectedSegmentIndex` property.
+    public var value: ControlProperty<Int> {
+        let editingEvents: UIControl.Event = [.allEditingEvents, .valueChanged]
+        return base.rx.controlProperty(
+            editingEvents: editingEvents,
+            getter: { segmentedControl in
+                segmentedControl.selectedSegmentIndex
+            }, setter: { segmentedControl, value in
+                segmentedControl.selectedSegmentIndex = value
+            }
+        )
     }
 }

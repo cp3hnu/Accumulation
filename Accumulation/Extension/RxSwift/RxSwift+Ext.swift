@@ -34,7 +34,7 @@ extension ControlPropertyType where Element == String {
 }
 
 extension Reactive where Base: UIView {
-    public var gestureTap: ControlEvent<()> {
+    public var gestureTap: ControlEvent<Void> {
         self.base.isUserInteractionEnabled = true
         let tapGR = UITapGestureRecognizer()
         self.base.addGestureRecognizer(tapGR)
@@ -44,6 +44,17 @@ extension Reactive where Base: UIView {
         return ControlEvent(events: source)
     }
 }
+
+extension Observable {
+    func nilToRequest(value: Element?, forceRefresh: Bool = false, request: () -> Observable<Element>) -> Observable<Element> {
+        if let unwrpValue = value, !forceRefresh {
+            return Observable<Element>.just(unwrpValue)
+        }
+        
+        return request()
+    }
+}
+
 
 
 
