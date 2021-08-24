@@ -29,11 +29,6 @@
 		35161314246D35CB0078CE74 /* DataPickerCtrlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3516130A246D35CB0078CE74 /* DataPickerCtrlr.swift */; };
 		35161315246D35CB0078CE74 /* DimmingAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3516130B246D35CB0078CE74 /* DimmingAnimator.swift */; };
 		35161316246D35CB0078CE74 /* DatePickerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3516130C246D35CB0078CE74 /* DatePickerTransition.swift */; };
-		35161319246D36F60078CE74 /* Bricking in Frameworks */ = {isa = PBXBuildFile; productRef = 35161318246D36F60078CE74 /* Bricking */; };
-		3516131C246D39EC0078CE74 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3516131B246D39EC0078CE74 /* RxSwift */; };
-		3516131E246D39EC0078CE74 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 3516131D246D39EC0078CE74 /* RxRelay */; };
-		35161320246D39EC0078CE74 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 3516131F246D39EC0078CE74 /* RxCocoa */; };
-		35161322246D39EC0078CE74 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 35161321246D39EC0078CE74 /* RxBlocking */; };
 		3516132E246D3A750078CE74 /* UIBarButtonItem+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3516132A246D3A750078CE74 /* UIBarButtonItem+Closure.swift */; };
 		3516132F246D3A750078CE74 /* UIView+Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3516132B246D3A750078CE74 /* UIView+Closure.swift */; };
 		35161330246D3A750078CE74 /* TapActionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3516132C246D3A750078CE74 /* TapActionWrapper.swift */; };
@@ -76,6 +71,12 @@
 		ECA5CC232671906F00F9C2BA /* UISearchBar+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC222671906F00F9C2BA /* UISearchBar+Ext.swift */; };
 		ECA5CC2B267196E300F9C2BA /* RollLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC2A267196E300F9C2BA /* RollLoadingView.swift */; };
 		ECA5CC2D2671972400F9C2BA /* GradientLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC2C2671972400F9C2BA /* GradientLoadingView.swift */; };
+		ECB0C16C26D3E71B00A30F78 /* Bricking in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C16B26D3E71B00A30F78 /* Bricking */; };
+		ECB0C16E26D3E71B00A30F78 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C16D26D3E71B00A30F78 /* RxBlocking */; };
+		ECB0C17026D3E71B00A30F78 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C16F26D3E71B00A30F78 /* RxCocoa */; };
+		ECB0C17226D3E71B00A30F78 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C17126D3E71B00A30F78 /* RxRelay */; };
+		ECB0C17426D3E71B00A30F78 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C17326D3E71B00A30F78 /* RxSwift */; };
+		ECB0C17626D3E71B00A30F78 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C17526D3E71B00A30F78 /* Toast */; };
 		ECB418C326899B3000CAFCD6 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB418C226899B3000CAFCD6 /* UINavigationController+Ext.swift */; };
 		ECC0E837265EA2E000C28C3C /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E836265EA2E000C28C3C /* UITableView+Ext.swift */; };
 		ECC0E839265F1C3D00C28C3C /* ImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E838265F1C3D00C28C3C /* ImageLabelView.swift */; };
@@ -88,7 +89,6 @@
 		ECC0E8682663944000C28C3C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E8672663944000C28C3C /* PlaceholderTextView.swift */; };
 		ECC0E8922665087100C28C3C /* InsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E8912665087000C28C3C /* InsetsTextField.swift */; };
 		ECDE8FE626B2E4DF0042601E /* InsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDE8FE526B2E4DF0042601E /* InsetsLabel.swift */; };
-		ECEB8FF7267C18790047D140 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = ECEB8FF6267C18790047D140 /* Toast */; };
 		ECEB8FFA267F85270047D140 /* RxSwift+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEB8FF9267F85270047D140 /* RxSwift+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,7 +158,6 @@
 		ECA5CC1B26703E8B00F9C2BA /* DatePickerCtrlr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCtrlr.swift; sourceTree = "<group>"; };
 		ECA5CC1C26703E8B00F9C2BA /* ItemPickerCtrlr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPickerCtrlr.swift; sourceTree = "<group>"; };
 		ECA5CC222671906F00F9C2BA /* UISearchBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Ext.swift"; sourceTree = "<group>"; };
-		ECA5CC26267191E200F9C2BA /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		ECA5CC2A267196E300F9C2BA /* RollLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollLoadingView.swift; sourceTree = "<group>"; };
 		ECA5CC2C2671972400F9C2BA /* GradientLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoadingView.swift; sourceTree = "<group>"; };
 		ECB418C226899B3000CAFCD6 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
@@ -181,12 +180,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECEB8FF7267C18790047D140 /* Toast in Frameworks */,
-				3516131E246D39EC0078CE74 /* RxRelay in Frameworks */,
-				3516131C246D39EC0078CE74 /* RxSwift in Frameworks */,
-				35161320246D39EC0078CE74 /* RxCocoa in Frameworks */,
-				35161319246D36F60078CE74 /* Bricking in Frameworks */,
-				35161322246D39EC0078CE74 /* RxBlocking in Frameworks */,
+				ECB0C17626D3E71B00A30F78 /* Toast in Frameworks */,
+				ECB0C17026D3E71B00A30F78 /* RxCocoa in Frameworks */,
+				ECB0C16C26D3E71B00A30F78 /* Bricking in Frameworks */,
+				ECB0C17426D3E71B00A30F78 /* RxSwift in Frameworks */,
+				ECB0C17226D3E71B00A30F78 /* RxRelay in Frameworks */,
+				ECB0C16E26D3E71B00A30F78 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +198,7 @@
 				EC25A3AB2626775500BF2DF6 /* Package.swift */,
 				351612D0246D32200078CE74 /* Accumulation */,
 				351612AC246D29C40078CE74 /* Products */,
+				ECB0C16A26D3E71B00A30F78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,7 +244,6 @@
 				EC69455826BCBCD60021423D /* Cell */,
 				EC69455726BCBCBC0021423D /* Form */,
 				ECA5CC29267196CC00F9C2BA /* Loading */,
-				ECA5CC26267191E200F9C2BA /* BannerView.swift */,
 				EC7A5F6E266512D200E4A7A7 /* CPSegmentedControl.swift */,
 				ECC0E8672663944000C28C3C /* PlaceholderTextView.swift */,
 				ECC0E8542661B95800C28C3C /* VerifyCodeButton.swift */,
@@ -408,6 +407,13 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		ECB0C16A26D3E71B00A30F78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ECC0E81F265D3F6B00C28C3C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,12 +459,12 @@
 			);
 			name = Accumulation;
 			packageProductDependencies = (
-				35161318246D36F60078CE74 /* Bricking */,
-				3516131B246D39EC0078CE74 /* RxSwift */,
-				3516131D246D39EC0078CE74 /* RxRelay */,
-				3516131F246D39EC0078CE74 /* RxCocoa */,
-				35161321246D39EC0078CE74 /* RxBlocking */,
-				ECEB8FF6267C18790047D140 /* Toast */,
+				ECB0C16B26D3E71B00A30F78 /* Bricking */,
+				ECB0C16D26D3E71B00A30F78 /* RxBlocking */,
+				ECB0C16F26D3E71B00A30F78 /* RxCocoa */,
+				ECB0C17126D3E71B00A30F78 /* RxRelay */,
+				ECB0C17326D3E71B00A30F78 /* RxSwift */,
+				ECB0C17526D3E71B00A30F78 /* Toast */,
 			);
 			productName = Utils;
 			productReference = 351612CF246D32200078CE74 /* Accumulation.framework */;
@@ -739,7 +745,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.funny.learning.accumulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -771,7 +777,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.funny.learning.accumulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -833,32 +839,32 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		35161318246D36F60078CE74 /* Bricking */ = {
+		ECB0C16B26D3E71B00A30F78 /* Bricking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 35161317246D36F60078CE74 /* XCRemoteSwiftPackageReference "Bricking" */;
 			productName = Bricking;
 		};
-		3516131B246D39EC0078CE74 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		3516131D246D39EC0078CE74 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		3516131F246D39EC0078CE74 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		35161321246D39EC0078CE74 /* RxBlocking */ = {
+		ECB0C16D26D3E71B00A30F78 /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxBlocking;
 		};
-		ECEB8FF6267C18790047D140 /* Toast */ = {
+		ECB0C16F26D3E71B00A30F78 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		ECB0C17126D3E71B00A30F78 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		ECB0C17326D3E71B00A30F78 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		ECB0C17526D3E71B00A30F78 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ECEB8FF5267C18790047D140 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
