@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 /// 验证码 UIButton
 public final class VerifyCodeButton: UIButton {

@@ -9,7 +9,6 @@
 import UIKit
 import Bricking
 import RxSwift
-import RxCocoa
  
 public protocol AlertStyleViewController {
     var wrappedView: UIView { get }
