@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		351612D3246D32200078CE74 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 351612D1246D32200078CE74 /* Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		351612F6246D35710078CE74 /* Bundle+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612EB246D34E90078CE74 /* Bundle+Ext.swift */; };
 		351612F7246D35710078CE74 /* DispatchQueue+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612E3246D34E90078CE74 /* DispatchQueue+Ext.swift */; };
 		351612F8246D35710078CE74 /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351612E8246D34E90078CE74 /* FileManager+Ext.swift */; };
@@ -93,7 +92,6 @@
 
 /* Begin PBXFileReference section */
 		351612CF246D32200078CE74 /* Accumulation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Accumulation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		351612D1246D32200078CE74 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		351612D2246D32200078CE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351612E1246D34E80078CE74 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		351612E2246D34E80078CE74 /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				351612DE246D324A0078CE74 /* Controller */,
 				351612DD246D323D0078CE74 /* View */,
 				351612DC246D32290078CE74 /* Extension */,
-				351612D1246D32200078CE74 /* Utils.h */,
 				351612D2246D32200078CE74 /* Info.plist */,
 				35D2492624B45A6500B31F43 /* Accumulation.xcassets */,
 			);
@@ -435,7 +432,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				351612D3246D32200078CE74 /* Utils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +737,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.funny.learning.accumulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -773,7 +769,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.funny.learning.accumulation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
