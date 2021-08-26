@@ -31,9 +31,9 @@ public enum EmptyError {
     var image: UIImage? {
         switch self {
         case .noData:
-            return #imageLiteral(resourceName: "error-no-data")
+            return UIImage.bundleImage("error-no-data")
         case .error(_), .appError(_):
-            return #imageLiteral(resourceName: "error-no-network")
+            return UIImage.bundleImage("error-no-network")
         case .custom(_, _):
             return nil
         }

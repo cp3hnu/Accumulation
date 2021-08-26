@@ -100,7 +100,7 @@ public final class IndicatorFormView: UIView {
         if #available(iOS 13.0, *) {
             indicator.image = Style.indicatorImage
         } else {
-            indicator.image = #imageLiteral(resourceName: "cell-indicator")
+            indicator.image = UIImage.bundleImage("cell-indicator")
         }
         
         asv(

@@ -165,7 +165,7 @@ private extension AlertCtrlr {
                 let image = UIImage(systemName: "xmark")
                 closeBtn.setImage(image, for: .normal)
             } else {
-                closeBtn.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+                closeBtn.setImage(UIImage.bundleImage("close"), for: .normal)
             }
             closeBtn.tintColor = Style.closeTintColor
             closeBtn.tap { [unowned self] in

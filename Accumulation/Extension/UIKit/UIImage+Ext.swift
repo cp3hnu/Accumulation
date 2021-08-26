@@ -142,3 +142,10 @@ extension UIImage {
         return newImage
     }
 }
+
+// MARK: - Bundle Image
+extension UIImage {
+    static func bundleImage(_ named: String) -> UIImage? {
+        return UIImage(named: named, in: Bundle.module, compatibleWith: nil)
+    }
+}

@@ -19,7 +19,7 @@ public final class GradientLoadingView: LoadingView {
         super.init(frame: frame)
         
         let bundle = Bundle(for: GradientLoadingView.self)
-        imageView.image = UIImage(named: "circle", in: bundle, compatibleWith: nil)
+        imageView.image = UIImage.bundleImage("circle")
         asv(imageView)
         imageView.fillContainer()
     }

@@ -17,7 +17,14 @@ let package = Package(
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.2.0")
     ],
     targets: [
-        .target(name: "Accumulation", dependencies: ["Bricking", "RxSwift"], path: "Accumulation")
+        .target(
+            name: "Accumulation",
+            dependencies: [
+                "Bricking",
+                "RxSwift",
+                .product(name: "RxCocoa", package: "RxSwift")],
+            path: "Accumulation"
+        )
     ],
     swiftLanguageVersions: [.v5]
 )

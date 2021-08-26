@@ -92,7 +92,6 @@
 
 /* Begin PBXFileReference section */
 		351612CF246D32200078CE74 /* Accumulation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Accumulation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		351612D2246D32200078CE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351612E1246D34E80078CE74 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		351612E2246D34E80078CE74 /* Optional+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Ext.swift"; sourceTree = "<group>"; };
 		351612E3246D34E90078CE74 /* DispatchQueue+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Ext.swift"; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 				351612DE246D324A0078CE74 /* Controller */,
 				351612DD246D323D0078CE74 /* View */,
 				351612DC246D32290078CE74 /* Extension */,
-				351612D2246D32200078CE74 /* Info.plist */,
 				35D2492624B45A6500B31F43 /* Accumulation.xcassets */,
 			);
 			path = Accumulation;

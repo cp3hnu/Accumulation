@@ -44,8 +44,8 @@ public final class RadioView: UIView {
         var preButton: UIButton!
         for (index, item) in options.enumerated() {
             let button = UIButton()
-            button.setImage(#imageLiteral(resourceName: "radio-unselect"), for: .normal)
-            button.setImage(#imageLiteral(resourceName: "radio-selected"), for: .selected)
+            button.setImage(UIImage.bundleImage("radio-unselect"), for: .normal)
+            button.setImage(UIImage.bundleImage("radio-selected"), for: .selected)
             button.setTitle(item, for: .normal)
             button.setTitleColor(UIColor.black, for: .normal)
             button.titleLabel?.font = UIFont.contentFont

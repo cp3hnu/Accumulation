@@ -18,7 +18,7 @@ public final class DefaultTableCell: UITableViewCell {
         public static var indicatorImageConfig = UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
         @available(iOS 13.0, *)
         public static var indicatorImage = UIImage(systemName: "chevron.right", withConfiguration: indicatorImageConfig)
-        public static var compIndicatorImage = #imageLiteral(resourceName: "cell-indicator")
+        public static var compIndicatorImage = UIImage.bundleImage("cell-indicator")
         public static var backgroundColor = UIColor.compSecondarySystemGroupedBackground
     }
     
