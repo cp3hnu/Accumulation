@@ -21,18 +21,6 @@ public final class VerifyCodeButton: UIButton {
         public static var disabledBorderColor: UIColor = UIColor.mainColor.alpha(0.3)
     }
     
-    public var normalColor = Style.normalColor {
-        didSet {
-            setTitleColor(normalColor, for: .normal)
-            
-        }
-    }
-    public var disabledColor = Style.disabledColor {
-        didSet {
-            setTitleColor(Style.disabledColor, for: .disabled)
-        }
-    }
-    
     // 是否有边框
     public var borderWidth = Style.borderWidth
     // 边框颜色

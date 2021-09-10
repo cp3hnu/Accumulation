@@ -30,7 +30,7 @@ extension UIImage {
         let innerRadius = innerSquare/2
         let center = CGPoint(x: outerSquare/2, y: outerSquare/2)
         
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: outerSquare, height: outerSquare), false, 0.0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: outerSquare, height: outerSquare), false, scale)
         let context = UIGraphicsGetCurrentContext()!
         
         if (borderSize > 0) {
@@ -136,10 +136,28 @@ extension UIImage {
     public func moveToPosition(_ point: CGPoint) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         draw(in: CGRect(x: point.x, y: point.y, width: size.width, height: size.height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        
-        return newImage
+        return image
+    }
+    
+    /// Inset image
+    func with(dimension: CGFloat) -> UIImage {
+        return with(insets: UIEdgeInsets(top: dimension, left: dimension, bottom: dimension, right: dimension))
+    }
+    
+    /// Inset image
+    func with(insets: UIEdgeInsets) -> UIImage {
+        let targetWidth = size.width + insets.left + insets.right
+        let targetHeight = size.height + insets.top + insets.bottom
+        let targetSize = CGSize(width: targetWidth, height: targetHeight)
+        let targetOrigin = CGPoint(x: insets.left, y: insets.top)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        return renderer.image { _ in
+            draw(in: CGRect(origin: targetOrigin, size: size))
+        }.withRenderingMode(renderingMode)
     }
 }
 

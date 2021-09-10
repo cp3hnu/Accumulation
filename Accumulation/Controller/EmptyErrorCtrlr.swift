@@ -1,8 +1,8 @@
 //
-//  ErrorCtrlr.swift
+//  EmptyErrorCtrlr.swift
 //  hnup
 //
-//  Created by Jian Hu on 16/5/22.
+//  Created by CP3 on 16/5/22.
 //  Copyright © 2016年 DataYP. All rights reserved.
 //
 
@@ -13,7 +13,21 @@ public enum EmptyError {
     case noData
     case error(Error)
     case appError(String)
-    case custom(UIView, UIEdgeInsets)
+    case customView(UIView, UIEdgeInsets)
+    case custom(UIImage?, String, String)
+    
+    var image: UIImage? {
+        switch self {
+        case .noData:
+            return UIImage.bundleImage("error-no-data")
+        case .error, .appError:
+            return UIImage.bundleImage("error-no-network")
+        case .custom(let image, _, _):
+            return image
+        case .customView:
+            return nil
+        }
+    }
     
     var desc: String {
         switch self {
@@ -23,25 +37,29 @@ public enum EmptyError {
             return error.localizedDescription
         case .appError(let message):
             return message
-        case .custom(_, _):
+       case .custom(_, let desc, _):
+            return desc
+        case .customView:
             return ""
         }
     }
     
-    var image: UIImage? {
+    var buttonTitle: String {
         switch self {
         case .noData:
-            return UIImage.bundleImage("error-no-data")
-        case .error(_), .appError(_):
-            return UIImage.bundleImage("error-no-network")
-        case .custom(_, _):
-            return nil
+            return "重新加载"
+        case .error, .appError:
+            return "点击重试"
+       case .custom(_, _, let title):
+            return title
+        case .customView:
+            return ""
         }
     }
 }
 
 /// 显示空数据或者网络请求错误的 UIViewController
-final class ErrorCtrlr: UIViewController {
+final class EmptyErrorCtrlr: UIViewController {
     
     private let error: EmptyError
     private let onRetry: (() -> Void)?
@@ -59,7 +77,7 @@ final class ErrorCtrlr: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = UIColor.white
-        if case let EmptyError.custom(customView, inset) = error {
+        if case let EmptyError.customView(customView, inset) = error {
             view.asv(customView)
             customView.top(inset.top).bottom(inset.bottom).leading(inset.left).trailing(inset.right)
         } else {
@@ -74,7 +92,7 @@ final class ErrorCtrlr: UIViewController {
         let descLabel = UILabel().font(UIFont.contentFont).lines(0).textColor(UIColor.Text.light).alignCenter()
         descLabel.text = error.desc
         
-        let retryBtn = UIButton.universalButton(title: "点击重试")
+        let retryBtn = UIButton.universalButton(title: error.buttonTitle)
         retryBtn.tap { [weak self] in
             self?.onRetry?()
         }
@@ -91,7 +109,7 @@ final class ErrorCtrlr: UIViewController {
             36,
             |-20-descLabel-20-|,
             50,
-            |-20-retryBtn-20-| ~ 44,
+            retryBtn.width(50%).centerHorizontally() ~ 44,
             0
         )
         

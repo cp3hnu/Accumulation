@@ -11,27 +11,27 @@ import UIKit
 import Bricking
 
 extension UIViewController {
-    public func presentErrorCtrlr(error: EmptyError = .noData, topInset: CGFloat = 0, bottomInset: CGFloat = 0, onRetry: (() -> Void)? = nil) {
+    public func presentEmptyCtrlr(error: EmptyError = .noData, topInset: CGFloat = 0, bottomInset: CGFloat = 0, onRetry: (() -> Void)? = nil) {
         guard errorCtrlr == nil else { return }
         
-        let errCtrlr = ErrorCtrlr(error: error, onRetry: onRetry)
+        let errCtrlr = EmptyErrorCtrlr(error: error, onRetry: onRetry)
         addChild(errCtrlr)
         view.asv(errCtrlr.view)
         errCtrlr.view.fillHorizontally().top(topInset).bottom(bottomInset)
         errCtrlr.didMove(toParent: self)
     }
     
-    public func presentErrorCtrlrInView(_ containerView: UIView, error: EmptyError = .noData, topInset: CGFloat = 0, bottomInset: CGFloat = 0, onRetry: (() -> Void)? = nil) {
+    public func presentEmptyCtrlr(containerView: UIView, error: EmptyError = .noData, topInset: CGFloat = 0, bottomInset: CGFloat = 0, onRetry: (() -> Void)? = nil) {
         guard errorCtrlr == nil else { return }
         
-        let errCtrlr = ErrorCtrlr(error: error, onRetry: onRetry)
+        let errCtrlr = EmptyErrorCtrlr(error: error, onRetry: onRetry)
         addChild(errCtrlr)
         containerView.asv(errCtrlr.view)
         errCtrlr.view.fillHorizontally().top(topInset).bottom(bottomInset)
         errCtrlr.didMove(toParent: self)
     }
     
-    public func dissmissErrorCtrlr() {
+    public func dissmissEmptyCtrlr() {
         guard let errorCtrlr = errorCtrlr else { return }
         
         errorCtrlr.willMove(toParent: nil)
@@ -39,10 +39,10 @@ extension UIViewController {
         errorCtrlr.removeFromParent()
     }
     
-    public func presentErrorCtrlrInTableView(_ tableView: UITableView, error: EmptyError = .noData, onRetry: (() -> Void)? = nil) {
+    public func presentEmptyCtrlr(tableView: UITableView, error: EmptyError = .noData, onRetry: (() -> Void)? = nil) {
         guard errorCtrlr == nil else { return }
         
-        let errCtrlr = ErrorCtrlr(error: error, onRetry: onRetry)
+        let errCtrlr = EmptyErrorCtrlr(error: error, onRetry: onRetry)
         
         tableView.isScrollEnabled = false
         addChild(errCtrlr)
@@ -50,7 +50,7 @@ extension UIViewController {
         errCtrlr.didMove(toParent: self)
     }
     
-    public func dissmissErrorCtrlrInTableView(_ tableView: UITableView) {
+    public func dissmissEmptyCtrlr(tableView: UITableView) {
         guard let errorCtrlr = errorCtrlr else { return }
         tableView.backgroundView = nil
         tableView.isScrollEnabled = true
@@ -60,18 +60,18 @@ extension UIViewController {
         errorCtrlr.removeFromParent()
     }
     
-    public func presentOrDismissEmptyDataInTableView(_ tableView: UITableView, isEmpty: Bool) {
+    public func presentOrDismissEmptyCtrlr(tableView: UITableView, isEmpty: Bool, error: EmptyError = .noData, onRetry: (() -> Void)? = nil) {
         if isEmpty {
-            presentErrorCtrlrInTableView(tableView)
+            presentEmptyCtrlr(tableView: tableView, error: error, onRetry: onRetry)
         } else {
-            dissmissErrorCtrlrInTableView(tableView)
+            dissmissEmptyCtrlr(tableView: tableView)
         }
     }
     
-    private var errorCtrlr: ErrorCtrlr? {
+    private var errorCtrlr: EmptyErrorCtrlr? {
         get {
             for vc in children {
-                if let ctrlr = vc as? ErrorCtrlr {
+                if let ctrlr = vc as? EmptyErrorCtrlr {
                     return ctrlr
                 }
             }

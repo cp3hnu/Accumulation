@@ -46,7 +46,7 @@ extension Reactive where Base: UIView {
 }
 
 extension Observable {
-    func nilToRequest(value: Element?, forceRefresh: Bool = false, request: () -> Observable<Element>) -> Observable<Element> {
+    public static func nilToRequest(value: Element?, forceRefresh: Bool = false, request: () -> Observable<Element>) -> Observable<Element> {
         if let unwrpValue = value, !forceRefresh {
             return Observable<Element>.just(unwrpValue)
         }

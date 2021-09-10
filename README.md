@@ -1,6 +1,6 @@
 # Accumulation
 
-开发项目过程中的积累，包括View, View Controller, Extension, Transition, Style、Utils
+开发项目过程中的积累，包括View, View Controller, Extension, Transition, Style, Utils
 
 ## Installation
 

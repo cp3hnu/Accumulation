@@ -18,7 +18,6 @@ public final class GradientLoadingView: LoadingView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let bundle = Bundle(for: GradientLoadingView.self)
         imageView.image = UIImage.bundleImage("circle")
         asv(imageView)
         imageView.fillContainer()
