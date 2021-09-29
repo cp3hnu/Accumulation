@@ -108,6 +108,10 @@ extension String {
         return URL(string: self)
     }
     
+    public var utf8Encoded: Data {
+        return Data(self.utf8)
+    }
+    
     public func emptyTo(_ defaultValue: String) -> String {
         return !self.isEmpty ? self : defaultValue
     }

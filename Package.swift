@@ -13,8 +13,8 @@ let package = Package(
         .library(name: "Accumulation", targets: ["Accumulation"])
     ],
     dependencies: [
-        .package(url: "https://github.com/cp3hnu/Bricking.git", from: "4.1.1"),
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.2.0")
+        .package(url: "https://github.com/cp3hnu/Bricking.git", .upToNextMajor(from: "4.0.0")),
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0"))
     ],
     targets: [
         .target(

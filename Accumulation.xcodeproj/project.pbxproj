@@ -71,10 +71,10 @@
 		ECA5CC2B267196E300F9C2BA /* RollLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC2A267196E300F9C2BA /* RollLoadingView.swift */; };
 		ECA5CC2D2671972400F9C2BA /* GradientLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA5CC2C2671972400F9C2BA /* GradientLoadingView.swift */; };
 		ECB0C16C26D3E71B00A30F78 /* Bricking in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C16B26D3E71B00A30F78 /* Bricking */; };
-		ECB0C16E26D3E71B00A30F78 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C16D26D3E71B00A30F78 /* RxBlocking */; };
 		ECB0C17026D3E71B00A30F78 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C16F26D3E71B00A30F78 /* RxCocoa */; };
 		ECB0C17226D3E71B00A30F78 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C17126D3E71B00A30F78 /* RxRelay */; };
 		ECB0C17426D3E71B00A30F78 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ECB0C17326D3E71B00A30F78 /* RxSwift */; };
+		ECB0CB8F2703EC240006C9A1 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB0CB8E2703EC240006C9A1 /* FormValidator.swift */; };
 		ECB418C326899B3000CAFCD6 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB418C226899B3000CAFCD6 /* UINavigationController+Ext.swift */; };
 		ECC0E837265EA2E000C28C3C /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E836265EA2E000C28C3C /* UITableView+Ext.swift */; };
 		ECC0E839265F1C3D00C28C3C /* ImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0E838265F1C3D00C28C3C /* ImageLabelView.swift */; };
@@ -157,6 +157,7 @@
 		ECA5CC222671906F00F9C2BA /* UISearchBar+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Ext.swift"; sourceTree = "<group>"; };
 		ECA5CC2A267196E300F9C2BA /* RollLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollLoadingView.swift; sourceTree = "<group>"; };
 		ECA5CC2C2671972400F9C2BA /* GradientLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLoadingView.swift; sourceTree = "<group>"; };
+		ECB0CB8E2703EC240006C9A1 /* FormValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		ECB418C226899B3000CAFCD6 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
 		ECC0E836265EA2E000C28C3C /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		ECC0E838265F1C3D00C28C3C /* ImageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelView.swift; sourceTree = "<group>"; };
@@ -182,7 +183,6 @@
 				ECB0C16C26D3E71B00A30F78 /* Bricking in Frameworks */,
 				ECB0C17426D3E71B00A30F78 /* RxSwift in Frameworks */,
 				ECB0C17226D3E71B00A30F78 /* RxRelay in Frameworks */,
-				ECB0C16E26D3E71B00A30F78 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +413,7 @@
 		ECC0E81F265D3F6B00C28C3C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ECB0CB8E2703EC240006C9A1 /* FormValidator.swift */,
 				EC69455526BAB37F0021423D /* CPDateFormatter.swift */,
 			);
 			path = Utils;
@@ -455,7 +456,6 @@
 			name = Accumulation;
 			packageProductDependencies = (
 				ECB0C16B26D3E71B00A30F78 /* Bricking */,
-				ECB0C16D26D3E71B00A30F78 /* RxBlocking */,
 				ECB0C16F26D3E71B00A30F78 /* RxCocoa */,
 				ECB0C17126D3E71B00A30F78 /* RxRelay */,
 				ECB0C17326D3E71B00A30F78 /* RxSwift */,
@@ -556,6 +556,7 @@
 				35161316246D35CB0078CE74 /* DatePickerTransition.swift in Sources */,
 				EC7A5F6F266512D200E4A7A7 /* CPSegmentedControl.swift in Sources */,
 				35161301246D35710078CE74 /* UILabel+Ext.swift in Sources */,
+				ECB0CB8F2703EC240006C9A1 /* FormValidator.swift in Sources */,
 				EC69455226BA95C30021423D /* GrowingTextView.swift in Sources */,
 				ECA5CC1E26703E8B00F9C2BA /* ItemPickerCtrlr.swift in Sources */,
 				EC4CE77A2669047100D6D335 /* CharacterSet+Ext.swift in Sources */,
@@ -829,11 +830,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 35161317246D36F60078CE74 /* XCRemoteSwiftPackageReference "Bricking" */;
 			productName = Bricking;
-		};
-		ECB0C16D26D3E71B00A30F78 /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3516131A246D39EC0078CE74 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
 		};
 		ECB0C16F26D3E71B00A30F78 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
